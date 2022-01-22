@@ -220,12 +220,6 @@ const permissionsList = [
                 url: '/demo/calendar'
             },
             {
-                id: 17,
-                name: '主题测试',
-                icon: 'rili',
-                url: '/demo/themeTest'
-            },
-            {
                 id: 18,
                 name: '目录特效',
                 icon: 'rili',

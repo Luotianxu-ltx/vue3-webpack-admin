@@ -12,6 +12,16 @@ export default [
                 path: 'lottery',
                 name: '抽奖',
                 component: () => import('@/views/demo/lottery/Lottery.vue')
+            },
+            {
+                path: 'calendar',
+                name: '日历',
+                component: () => import('@/views/demo/calendar/Calendar.vue')
+            },
+            {
+                path: 'content',
+                name: '目录',
+                component: () => import('@/views/demo/content/Content.vue')
             }
         ]
     }

@@ -62,7 +62,7 @@ export default defineComponent({
             top: 50%;
             transform: translate(-50%, -50%);
             width: 21rem;
-            height: 28rem;
+            height: 25rem;
             perspective: 1500px;
         }
 

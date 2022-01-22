@@ -225,7 +225,7 @@ module.exports = {
         'require-yield': 'off', // 生成器函数必须有yield
         'semi': ['error', 'never'], // 语句强制分号结尾
         'semi-spacing': [
-            'off',
+            'error',
             {
                 before: false,
                 after: true

@@ -151,7 +151,7 @@ export default defineComponent({
         left: 0;
         top: 0;
         width: 21rem;
-        height: 28rem;
+        height: 25rem;
         border-radius: 10px;
         backface-visibility: hidden;
         transition: all 0.5s;

@@ -10,11 +10,9 @@
 </template>
 
 <script lang="ts">
-import { useStore } from 'vuex'
 import { ElMessage } from 'element-plus'
 import { defineComponent, onMounted, onBeforeUnmount, ref } from 'vue'
 import screenfull from 'screenfull'
-import { Key } from '@/store'
 
 const sf = screenfull
 
@@ -22,7 +20,6 @@ export default defineComponent({
     name: 'ScreenFull',
     setup() {
         const isFullscreen = ref(false)
-        const store = useStore(Key)
 
         onMounted(() => {
             if (sf.isEnabled) {
@@ -48,7 +45,6 @@ export default defineComponent({
         function change () {
             if (sf.isEnabled) {
                 isFullscreen.value = sf.isFullscreen
-                store.commit('system/SET_SYSTEM_FULL', isFullscreen.value)
             }
         }
 

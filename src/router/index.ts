@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import systemRouter from '@/router/modules/system'
 import demoRouter from '@/router/modules/demo'
+import mapRouter from '@/router/modules/map'
 import NProgress from 'nprogress'
 import 'nprogress/css/nprogress.css'
 NProgress.configure({ showSpinner: false })
@@ -9,7 +11,7 @@ export type AddRouterRecordRaw = RouteRecordRaw & {
     hidden?: boolean
 }
 
-export const asyncRouterList: Array<RouteRecordRaw> = [...demoRouter]
+export const asyncRouterList: Array<RouteRecordRaw> = [...systemRouter,...demoRouter,...mapRouter]
 
 const baseRouter: Array<RouteRecordRaw> = [
     {
