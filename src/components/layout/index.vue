@@ -1,0 +1,59 @@
+<template>
+  <el-container style='height: 100%'>
+    <el-aside :width="isCollapse ? '64px' : '200px'">
+      <Aside></Aside>
+    </el-aside>
+    <el-container>
+      <el-header>
+        <Header></Header>
+      </el-header>
+      <el-main>
+        <Content></Content>
+      </el-main>
+    </el-container>
+  </el-container>
+</template>
+<script lang="ts">
+import { useStore } from 'vuex'
+import Header from '@/components/layout/header/Header.vue'
+import Aside from './aside/Aside.vue'
+import Content from './content/Content.vue'
+import { defineComponent, computed } from 'vue'
+import { Key } from '@/store'
+
+export default defineComponent({
+    name: 'Layout',
+    components: {
+        Aside,
+        Header,
+        Content
+    },
+    setup () {
+        const store = useStore(Key)
+        const isCollapse = computed(() => store.state.system?.SYSTEM_COLLAPSE)
+        return {
+            isCollapse
+        }
+    }
+})
+</script>
+
+<style scoped lang="scss">
+.system {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.content {
+  width: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.collapseMain {
+  width: calc(100% - 40px);
+}
+</style>
