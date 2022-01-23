@@ -2,6 +2,7 @@ const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 module.exports = {
+    transpileDependencies:['element-plus'],
     devServer: {
         port: 7000, // 端口号，如果端口号被占用，会自动提升1
         host: 'localhost', // 主机名
