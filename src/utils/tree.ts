@@ -1,4 +1,3 @@
-// 摊平树形结构
 export const flattenedTree = (data: any) => {
     let result: Array<string> = []
     result = addList(result, data)

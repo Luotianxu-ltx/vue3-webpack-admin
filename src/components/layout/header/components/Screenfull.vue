@@ -51,7 +51,7 @@ export default defineComponent({
         function click () {
             if (!sf.isEnabled) {
                 ElMessage({
-                    message: '您的浏览器不支持！',
+                    message: '您的浏览器不支持!',
                     type: 'warning'
                 })
                 return false

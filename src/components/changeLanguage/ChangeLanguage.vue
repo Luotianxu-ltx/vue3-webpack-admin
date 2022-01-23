@@ -12,6 +12,7 @@
                         v-for="item in options"
                         :key="item.value"
                         :command="item.value"
+                        :disabled="item.value === language"
                     >
                         {{ item.label }}
                     </el-dropdown-item>
@@ -59,14 +60,12 @@ export default defineComponent({
             }
         ])
 
-        function selectLanguage(val: string) {
-            store.commit('system/SET_SYSTEM_LANGUAGE', val) // 存储
-            proxy.$I18n.global.locale = val
-        }
+        // 当前系统语言
+        const language = computed(() => store.state.system?.SYSTEM_LANGUAGE)
 
         const handleCommand = (command: string) => {
-            console.log(command)
-            selectLanguage(command)
+            store.commit('system/SET_SYSTEM_LANGUAGE', command) // 存储
+            proxy.$I18n.global.locale = command
         }
 
         const font = computed(() => props.fontSize)
@@ -76,7 +75,8 @@ export default defineComponent({
             options,
             handleCommand,
             font,
-            colorFont
+            colorFont,
+            language
         }
     }
 })

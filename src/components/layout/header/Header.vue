@@ -19,7 +19,7 @@ import Avatar from '@/components/layout/header/components/Avatar.vue'
 import ChangeLanguage from '@/components/changeLanguage/ChangeLanguage.vue'
 import ScreenFull from '@/components/layout/header/components/Screenfull.vue'
 import Info from '@/components/layout/header/components/Info.vue'
-import BreadCrumb from '@/components/breadcrumb/BreadCrumb.vue'
+import BreadCrumb from '@/components/layout/header/components/BreadCrumb.vue'
 import { useStore } from 'vuex'
 import { Key } from '@/store'
 

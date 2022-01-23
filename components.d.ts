@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Aside: typeof import('./src/components/layout/aside/Aside.vue')['default']
     Avatar: typeof import('./src/components/layout/header/components/Avatar.vue')['default']
+    BreadCrumb: typeof import('./src/components/layout/header/components/BreadCrumb.vue')['default']
     ChangeLanguage: typeof import('./src/components/changeLanguage/ChangeLanguage.vue')['default']
     Content: typeof import('./src/components/layout/content/Content.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']

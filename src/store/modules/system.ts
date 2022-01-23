@@ -29,7 +29,7 @@ export default {
         SET_SYSTEM_ACTIVE_ROUTER(state: SystemStateType, data: string): void {
             state.SYSTEM_ACTIVE_ROUTER = data
         },
-        SET_SYSTEM_ROUTER (state: SystemStateType, data: string) {
+        SET_SYSTEM_ROUTER (state: SystemStateType, data: string): void {
             state.SYSTEM_ROUTER.push(data)
         }
     },
