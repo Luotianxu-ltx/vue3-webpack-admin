@@ -18,10 +18,30 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, watch } from 'vue'
+import { ElLoading } from 'element-plus'
 
 export default defineComponent({
-    name: 'LayoutQuery'
+    name: 'LayoutQuery',
+    props: {
+        loading: Boolean
+    },
+    setup(props) {
+        let loading: any
+        watch(
+            () => props.loading,
+            (newVal) => {
+                if (newVal) {
+                    loading = ElLoading.service({
+                        target: document.querySelector('.layout') as any,
+                        text: '加载中...'
+                    })
+                } else {
+                    loading.close()
+                }
+            }
+        )
+    }
 })
 </script>
 

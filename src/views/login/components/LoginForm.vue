@@ -108,7 +108,7 @@ export default defineComponent({
                             return ElMessage.warning('获取用户信息失败，请稍后重试!')
                         }
                         ElMessage.success(res.message)
-                        await router.push('/demo/lottery')
+                        await router.push('/system/user')
                     } else {
                         ElMessage.warning(res.message)
                     }
