@@ -5,6 +5,7 @@
                 <el-input
                     v-model="tableData.name"
                     placeholder="请输入菜单名称"
+                    clearable
                 ></el-input>
             </div>
             <div class="query-item">

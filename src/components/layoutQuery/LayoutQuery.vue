@@ -18,34 +18,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from 'vue'
-import { ElLoading } from 'element-plus'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: 'LayoutQuery',
-    props: {
-        loading: Boolean
-    },
-    setup(props) {
-        ElLoading.service()
-        let loading: any
-        watch(
-            () => props.loading,
-            (newVal) => {
-                if (newVal) {
-                    loading = ElLoading.service({
-                        lock: true,
-                        text: 'Loading',
-                        background: 'red'
-                    })
-                } else {
-                    setTimeout(() => {
-                        loading.close()
-                    }, 2000)
-                }
-            }
-        )
-    }
+    name: 'LayoutQuery'
 })
 </script>
 

@@ -5,12 +5,14 @@
                 <el-input
                     v-model="tableData.name"
                     placeholder="请输入用户姓名"
+                    clearable
                 ></el-input>
             </div>
             <div class="query-item">
                 <el-select
                     v-model="tableData.type"
                     placeholder="请选择用户角色"
+                    clearable
                 >
                     <el-option
                         v-for="item in options"
@@ -28,6 +30,7 @@
                     start-placeholder="开始时间"
                     end-placeholder="结束时间"
                     :shortcuts="shortcuts"
+                    clearable
                 ></el-date-picker>
             </div>
             <div class="query-item">

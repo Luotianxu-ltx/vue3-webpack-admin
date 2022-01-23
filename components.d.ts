@@ -47,6 +47,9 @@ declare module 'vue' {
     Info: typeof import('./src/components/layout/header/components/Info.vue')['default']
     Layout: typeof import('./src/components/layout/index.vue')['default']
     LayoutQuery: typeof import('./src/components/layoutQuery/LayoutQuery.vue')['default']
+    MapBase: typeof import('./src/components/mapBase/MapBase.vue')['default']
+    MapDraw: typeof import('./src/components/mapDraw/MapDraw.vue')['default']
+    MapLocationInput: typeof import('./src/components/mapLocationInput/MapLocationInput.vue')['default']
     NavigationBar: typeof import('./src/components/layout/header/components/NavigationBar.vue')['default']
     Screenfull: typeof import('./src/components/layout/header/components/Screenfull.vue')['default']
   }

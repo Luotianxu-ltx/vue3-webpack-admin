@@ -17,6 +17,7 @@
                     :placeholder="$t('login.loginUser')"
                     :prefix-icon="User"
                     size="default"
+                    clearable
                 />
             </el-form-item>
             <el-form-item class="item" prop="password">
@@ -27,6 +28,7 @@
                     :prefix-icon="Lock"
                     show-password
                     size="default"
+                    clearable
                 />
             </el-form-item>
             <el-form-item class="item" prop="password">
@@ -37,6 +39,7 @@
                     :prefix-icon="Lock"
                     show-password
                     size="default"
+                    clearable
                 />
             </el-form-item>
         </el-form>
