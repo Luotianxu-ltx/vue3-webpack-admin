@@ -6,6 +6,7 @@ import I18n from '@/lang/index'
 import '@/mock/index'
 import '@/assets/scss/main.scss'
 import 'element-plus/dist/index.css'
+import '@/router/permission'
 
 const app = createApp(App)
 app.use(store,Key)

@@ -39,21 +39,4 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.system {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.content {
-  width: calc(100% - 200px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.collapseMain {
-  width: calc(100% - 40px);
-}
 </style>

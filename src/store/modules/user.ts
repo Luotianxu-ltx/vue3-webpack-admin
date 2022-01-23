@@ -19,5 +19,10 @@ export default {
         }
     },
     actions: {},
-    modules: {}
+    modules: {},
+    getters: {
+        userInfo: function(state: userSateType) {
+            return state.USER_INFO
+        }
+    }
 }

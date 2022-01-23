@@ -48,7 +48,7 @@ export default defineComponent({
 
         function logout () {
             router.push('/login')
-            localStorage.removeItem('vue3-vite-admin')
+            localStorage.removeItem('vue3-webpack-admin')
         }
 
         const handleCommand = (command: string) => {

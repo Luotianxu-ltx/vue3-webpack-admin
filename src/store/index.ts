@@ -14,7 +14,7 @@ export const Key: InjectionKey<Store<State>> = Symbol('vuex')
 const store = createStore({
     plugins: [
         createPersistedState({
-            key: 'vue3-vite-admin'
+            key: 'vue3-webpack-admin'
         })
     ],
     modules: {
@@ -24,3 +24,8 @@ const store = createStore({
 })
 
 export default store
+
+// 路由守卫里面要写这个
+export function myStore () {
+    return store
+}
