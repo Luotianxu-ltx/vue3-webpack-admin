@@ -6,7 +6,9 @@ const systemState = {
     // 所有菜单
     SYSTEM_PAGE_LIST: '',
     // 当前页面路由
-    SYSTEM_ACTIVE_ROUTER: ''
+    SYSTEM_ACTIVE_ROUTER: '',
+    // 历史路由
+    SYSTEM_ROUTER: [] as Array<string>
 }
 
 export type SystemStateType = typeof systemState
@@ -26,9 +28,20 @@ export default {
         },
         SET_SYSTEM_ACTIVE_ROUTER(state: SystemStateType, data: string): void {
             state.SYSTEM_ACTIVE_ROUTER = data
+        },
+        SET_SYSTEM_ROUTER (state: SystemStateType, data: string) {
+            state.SYSTEM_ROUTER.push(data)
         }
     },
     actions: {
+        // 历史
+        addRouter(context:any, data: string) {
+            const list = context.state.SYSTEM_ROUTER
+            const res = list.filter((item:any) => item === data)
+            if (res.length === 0) {
+                context.commit('SET_SYSTEM_ROUTER', data)
+            }
+        }
     },
     modules: {}
 }

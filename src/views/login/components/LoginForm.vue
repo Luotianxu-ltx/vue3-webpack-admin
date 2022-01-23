@@ -55,6 +55,7 @@ import {
 } from '@/api/system/userApi'
 import { ElMessage } from 'element-plus'
 import { Key } from '@/store'
+import { flattenedTree } from '@/utils/tree'
 
 export default defineComponent({
     name: 'LoginForm',
@@ -103,7 +104,9 @@ export default defineComponent({
                         })
                         if (
                             userInfo.status === 200 &&list.status === 200) {
+                            const data = flattenedTree(list.data.list)
                             store.commit('user/SET_USER_INFO',JSON.stringify(userInfo.data.userInfo))
+                            store.commit('user/SET_USER_PERMISSIONS', data)
                         } else {
                             return ElMessage.warning('获取用户信息失败，请稍后重试!')
                         }

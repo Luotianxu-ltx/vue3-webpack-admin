@@ -2,6 +2,7 @@
   <div class="header">
     <div class="left">
       <i class="iconfont" :class="isCollapse ? 'mulushousuo' : 'muluzhankai'" @click="changAside"></i>
+      <BreadCrumb class="item"></BreadCrumb>
     </div>
     <div class="right">
       <Info class="item"></Info>
@@ -18,6 +19,7 @@ import Avatar from '@/components/layout/header/components/Avatar.vue'
 import ChangeLanguage from '@/components/changeLanguage/ChangeLanguage.vue'
 import ScreenFull from '@/components/layout/header/components/Screenfull.vue'
 import Info from '@/components/layout/header/components/Info.vue'
+import BreadCrumb from '@/components/breadcrumb/BreadCrumb.vue'
 import { useStore } from 'vuex'
 import { Key } from '@/store'
 
@@ -27,7 +29,8 @@ export default defineComponent({
         ChangeLanguage,
         ScreenFull,
         Avatar,
-        Info
+        Info,
+        BreadCrumb
     },
     setup () {
         const store = useStore(Key)
