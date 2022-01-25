@@ -224,6 +224,12 @@ const permissionsList = [
                 name: '目录特效',
                 icon: 'rili',
                 url: '/demo/content'
+            },
+            {
+                id: 19,
+                name: '卡片',
+                icon: 'rili',
+                url: '/demo/card'
             }
         ]
     }

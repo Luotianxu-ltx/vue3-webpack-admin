@@ -22,6 +22,11 @@ export default [
                 path: 'content',
                 name: '目录',
                 component: () => import('@/views/demo/content/Content.vue')
+            },
+            {
+                path: 'card',
+                name: '资料卡片',
+                component: () => import('@/views/demo/card/Card.vue')
             }
         ]
     }
