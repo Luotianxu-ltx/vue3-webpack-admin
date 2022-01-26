@@ -2,15 +2,15 @@
   <div class="mapBase" id="mapBase"></div>
 </template>
 
-<script>
+<script lang='ts'>
 import { defineComponent, onMounted } from 'vue'
 import L from '@/lib/leaflet'
 
 export default defineComponent({
     name: 'MapBase',
     setup (props, context) {
-        let baseMap = ''
-        let baseMapLayer = ''
+        let baseMap: L.Map
+        let baseMapLayer: L.Layer
 
         onMounted(() => {
             initMap()
