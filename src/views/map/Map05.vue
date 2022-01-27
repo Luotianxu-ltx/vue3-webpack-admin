@@ -2,7 +2,7 @@
   <MapBase class="mapBase" @mapInitBase = 'mapInit'></MapBase>
 </template>
 
-<script lang='ts'>
+<script lang='js'>
 import { defineComponent, onMounted } from 'vue'
 import L from '@/lib/leaflet'
 import MapBase from '@/components/mapBase/MapBase.vue'
@@ -13,7 +13,7 @@ export default defineComponent({
         MapBase
     },
     setup () {
-        let map: L.Map
+        let map
         onMounted(() => {
             // 添加绘制图层
             const drawnItems = new L.FeatureGroup()
@@ -60,7 +60,7 @@ export default defineComponent({
             })
         })
 
-        function mapInit (baseMap: L.Map) {
+        function mapInit (baseMap) {
             map = baseMap
         }
         return {

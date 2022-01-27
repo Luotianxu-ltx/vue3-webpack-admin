@@ -2,7 +2,7 @@
   <MapBase class="mapBase" @mapInit = 'mapInit'></MapBase>
 </template>
 
-<script lang='ts'>
+<script lang='js '>
 import { defineComponent } from 'vue'
 import L from '@/lib/leaflet'
 import MapBase from '@/components/mapBase/MapBase.vue'
@@ -13,8 +13,8 @@ export default defineComponent({
         MapBase
     },
     setup () {
-        let map: L.Map
-        function mapInit (baseMap: L.Map, baseMapLayer: L.Layer) {
+        let map
+        function mapInit (baseMap, baseMapLayer) {
             map = baseMap
             map.setView([30.5217, 114.3948], 18)
             const imgLayer = L.tileLayer.chinaProvider('GaoDe.Satellite.Map').addTo(map)
