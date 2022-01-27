@@ -27,7 +27,7 @@
 
 <script>
 export default {
-    name: 'List'
+    name: 'Card1'
 }
 </script>
 
