@@ -2,7 +2,7 @@
   <MapBase class="mapBase" @mapInitBase = 'mapInit'></MapBase>
 </template>
 
-<script lang='js'>
+<script lang='ts'>
 import { defineComponent } from 'vue'
 import L from '@/lib/leaflet'
 import MapBase from '@/components/mapBase/MapBase.vue'
@@ -13,8 +13,7 @@ export default defineComponent({
         MapBase
     },
     setup () {
-        let map
-
+        let map: L.Map
         function drow () {
             // 圆
             L.circle([30.52181, 114.39518], {
@@ -56,7 +55,7 @@ export default defineComponent({
             }).addTo(map)
         }
 
-        function mapInit (baseMap) {
+        function mapInit (baseMap: L.Map) {
             map = baseMap
             map.setView([30.5217, 114.3948], 18)
             drow()

@@ -1,36 +1,21 @@
 <template>
-  <div class="map" id="map"></div>
+    <MapBase @mapInitBase='mapInit'></MapBase>
 </template>
 
-<script lang='js'>
-import { defineComponent, onMounted } from 'vue'
+<script lang='ts'>
+import { defineComponent } from 'vue'
 import L from '@/lib/leaflet'
-import markerIcon from 'leaflet/dist/images/marker-icon.png'
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
-import markerShadow from 'leaflet/dist/images/marker-shadow.png'
-
-const DefaultIcon = L.icon({
-    iconUrl: markerIcon,
-    iconRetinaUrl: markerIcon2x,
-    shadowUrl: markerShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    tooltipAnchor: [16, -28],
-    shadowSize: [41, 41]
-})
-L.Marker.prototype.options.icon = DefaultIcon
+import MapBase from '@/components/mapBase/MapBase.vue'
 
 export default defineComponent({
     name: 'Map02',
+    components: {
+        MapBase
+    },
     setup () {
-        onMounted(() => {
-            const map = L.map('map', {
-                attributionControl: false,
-                zoomControl: false
-            })
-            L.tileLayer('http://t4.tianditu.gov.cn/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=' + process.env.VUE_APP_MAP_TIAN, { noWrap: true }).addTo(map)
-            L.tileLayer('http://t4.tianditu.gov.cn/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=' + process.env.VUE_APP_MAP_TIAN, { noWrap: true }).addTo(map)
+        let map: L.Map
+        const mapInit = (baseMap: L.Map) => {
+            map = baseMap
             const scale = L.control.scale()
             map.addControl(scale)
 
@@ -39,19 +24,21 @@ export default defineComponent({
                 setView: true,
                 maxZoom: 18
             })
-
             // 定位成功
-            map.on('locationfound', function (e) {
+            map.on('locationfound', function(e) {
                 console.log(e)
                 L.marker(e.latlng).addTo(map).bindPopup('你的位置').openPopup()
                 L.circle(e.latlng, e.accuracy / 2).addTo(map)
             })
 
             // 注册定位失败事件
-            map.on('locationerror', function (e) {
+            map.on('locationerror', function(e) {
                 console.log('定位出错=====>', e)
             })
-        })
+        }
+        return {
+            mapInit
+        }
     }
 })
 </script>
