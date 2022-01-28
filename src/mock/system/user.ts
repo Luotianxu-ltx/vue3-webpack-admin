@@ -227,21 +227,33 @@ const permissionsList = [
             },
             {
                 id: 19,
-                name: '资料卡片',
+                name: '卡片1',
                 icon: 'rili',
                 url: '/demo/card1'
             },
             {
                 id: 20,
-                name: '卡片',
+                name: '卡片2',
                 icon: 'rili',
                 url: '/demo/card2'
             },
             {
                 id: 21,
-                name: '按钮',
+                name: '卡片3',
+                icon: 'rili',
+                url: '/demo/card3'
+            },
+            {
+                id: 22,
+                name: '按钮1',
                 icon: 'rili',
                 url: '/demo/button1'
+            },
+            {
+                id: 23,
+                name: '按钮2',
+                icon: 'rili',
+                url: '/demo/button2'
             }
         ]
     }

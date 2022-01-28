@@ -25,19 +25,30 @@ export default [
             },
             {
                 path: 'card1',
-                name: '资料卡片',
+                name: '卡片1',
                 component: () => import('@/views/demo/card/Card1.vue')
             },
             {
                 path: 'card2',
-                name: '卡片',
+                name: '卡片2',
                 component: () => import('@/views/demo/card/Card2.vue')
             },
             {
+                path: 'card3',
+                name: '卡片3',
+                component: () => import('@/views/demo/card/Card3.vue')
+            },
+            {
                 path: 'button1',
-                name: '按钮',
+                name: '按钮1',
                 component: () => import('@/views/demo/button/Button1.vue')
+            },
+            {
+                path: 'button2',
+                name: '按钮2',
+                component: () => import('@/views/demo/button/Button2.vue')
             }
+
         ]
     }
 ]

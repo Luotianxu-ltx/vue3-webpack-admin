@@ -105,7 +105,7 @@ export default {
                 }
 
                 .text {
-                    bottom: -35px;
+                    bottom: -20px;
                     opacity: 1;
                 }
             }
