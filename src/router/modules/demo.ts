@@ -47,8 +47,12 @@ export default [
                 path: 'button2',
                 name: '按钮2',
                 component: () => import('@/views/demo/button/Button2.vue')
+            },
+            {
+                path: 'loading1',
+                name: 'Loading1',
+                component: () => import('@/views/demo/loading/Loading1.vue')
             }
-
         ]
     }
 ]

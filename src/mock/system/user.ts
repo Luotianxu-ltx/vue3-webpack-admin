@@ -254,6 +254,12 @@ const permissionsList = [
                 name: '按钮2',
                 icon: 'rili',
                 url: '/demo/button2'
+            },
+            {
+                id: 24,
+                name: 'Loading1',
+                icon: 'rili',
+                url: '/demo/loading1'
             }
         ]
     }

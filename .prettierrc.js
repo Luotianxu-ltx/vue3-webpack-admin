@@ -6,7 +6,7 @@ module.exports = {
     printWidth: 80, // 单行输出（不折行）的（最大）长度
     useTabs: false, // 是否使用tab
     tabWidth: 4, // 每个缩进的空格数
-    tabs: false, // 使用制表符 (tab) 缩进行而不是空格 (space)
+    tabs: false, // 使用制表符 (loading) 缩进行而不是空格 (space)
     semi: false, // 是否在语句末尾打印分号
     singleQuote: true, // 是否使用单引号
     // "quoteProps": "as-needed", // 尽在需要时在对象属性周围添加引号
