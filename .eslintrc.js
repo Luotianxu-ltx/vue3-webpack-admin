@@ -24,13 +24,14 @@ module.exports = {
         '@vue/standard',
         '@vue/typescript/recommended'
     ],
-    parserOptions: {
-        ecmaVersion: 2020
-    },
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-var-requires': 0, // 可以使用require导入
+        'import/no-unresolved': 'off',
+        'import/extensions': 'off',
+        'import/no-absolute-path': 'off',
+        'import/no-extraneous-dependencies': 'off',
         '@typescript-eslint/no-explicit-any': 'off', //any检测
         '@typescript-eslint/no-var-requires': 0,
         '@typescript-eslint/explicit-module-boundary-types': 0,

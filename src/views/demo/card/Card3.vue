@@ -2,8 +2,8 @@
     <div class='page'>
         <div class='card'>
             <div class='imgBox'>
-                <img src='../../../assets/img/demo/person.jpeg' alt=''>
-                <img src='../../../assets/img/demo/person.jpeg' alt=''>
+                <img src='../../../static/img/demo/person.jpeg' alt=''>
+                <img src='../../../static/img/demo/person.jpeg' alt=''>
             </div>
             <div class='details'>
                 <div class='content'>

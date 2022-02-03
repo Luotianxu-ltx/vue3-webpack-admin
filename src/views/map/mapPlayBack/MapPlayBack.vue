@@ -87,10 +87,7 @@ export default defineComponent({
                             symbol: L.Symbol.marker({
                                 rotate: true,
                                 markerOptions: {
-                                    icon: L.icon({
-                                        iconUrl: '/src/assets/img/map/jiantou.png',
-                                        iconAnchor: [8, 8]
-                                    })
+                                    icon: getMapBasicIconRequire['jiantou']
                                 }
                             })
                         }

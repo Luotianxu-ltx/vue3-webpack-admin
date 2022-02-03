@@ -7,7 +7,7 @@
                 <p>这几天心里颇不宁静。今晚在院子里坐着乘凉，忽然想起日日走过的荷塘，在这满月的光里，总该另有一番样子吧。月亮渐渐地升高了，墙外马路上孩子们的欢笑，已经听不见了。</p>
                 <a href='#'>立即购买</a>
             </div>
-            <img src='../../../assets/img/demo/instantNoodles.png' alt='img'>
+            <img src='../../../static/img/demo/instantNoodles.png' alt='img'>
         </div>
     </div>
 </template>

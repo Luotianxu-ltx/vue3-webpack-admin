@@ -6,7 +6,7 @@
           <h3>Broke John</h3>
           <p>Web Designer</p>
           <div class='image'>
-            <img src='../../../assets/img/demo/person.jpeg' alt=''>
+            <img src='../../../static/img/demo/person.jpeg' alt=''>
           </div>
           <div class='social'>
               <span class='icon'>
@@ -75,7 +75,7 @@ export default {
           right: 0;
           width: 153px;
           height: 117px;
-          background-image: url("../../../assets/img/demo/team-circle-1-1.png");
+          background-image: url("../../../static/img/demo/team-circle-1-1.png");
           transform: perspective(200px) scaleX(0) scaleY(0);
           transition: transform 500ms ease, opacity 500ms ease;
           opacity: 0;
@@ -88,7 +88,7 @@ export default {
           left: 0;
           width: 153px;
           height: 117px;
-          background-image: url("../../../assets/img/demo/team-circle-1-1.png");
+          background-image: url("../../../static/img/demo/team-circle-1-1.png");
           transform: perspective(200px) scaleX(0) scaleY(0);
           transition: transform 500ms ease, opacity 500ms ease;
           opacity: 0;
