@@ -5,7 +5,7 @@ import store,{ Key } from '@/store'
 import I18n from '@/lang/index'
 import '@/mock/index'
 import '@/static/scss/main.scss'
-import 'element-plus/dist/index.css'
+// import 'element-plus/dist/index.css'
 import '@/router/permission'
 
 const app = createApp(App)

@@ -14,11 +14,11 @@ export default defineComponent({
         Location
     },
     setup (props, context) {
-        let _map = ''
+        let baseMap = ''
         let poiGroupLayer = ''
         function initMapLocationInput (map) {
-            _map = map
-            poiGroupLayer = new L.FeatureGroup().addTo(_map)
+            baseMap = map
+            poiGroupLayer = new L.FeatureGroup().addTo(baseMap)
         }
 
         const latlng = reactive({
@@ -26,7 +26,7 @@ export default defineComponent({
             latlng: {}
         })
         const getLocation = () => {
-            _map.once('mouseup', async (e) => {
+            baseMap.once('mouseup', async (e) => {
                 latlng.latlng = e.latlng// {lat: 30.59, lng: 114.32}
             })
         }

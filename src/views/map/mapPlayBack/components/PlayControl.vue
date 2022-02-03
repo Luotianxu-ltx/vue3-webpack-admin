@@ -109,7 +109,7 @@ export default defineComponent({
   width: 98%;
   display: flex;
   flex-direction: column;
-  height: 80px;
+  height: 65px;
   padding: 0 20px;
   border-radius: 5px;
   background-color: #fff;

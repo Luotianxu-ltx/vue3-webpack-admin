@@ -30,7 +30,7 @@ export default defineComponent({
         }
 
         function exportMapAll () {
-            context.emit('mapInit', baseMap, baseMapLayer)
+            context.emit('mapInit', baseMap, baseMapLayer, 'GaoNormal')
         }
 
         function exportMapBase () {

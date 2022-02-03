@@ -65,9 +65,9 @@ export default defineComponent({
 
         // 初始化
         let drawControl = ''
-        let _map = ''
+        let baseMap = ''
         function initMapDraw (map) {
-            _map = map
+            baseMap = map
             // 初始化绘制控件
             drawControl = new L.Control.Draw({
                 draw: false,
@@ -88,11 +88,11 @@ export default defineComponent({
         // 开始绘制
         function beginDraw () {
             save()
-            _map.on(L.Draw.Event.CREATED, drawCreatedBack)
+            baseMap.on(L.Draw.Event.CREATED, drawCreatedBack)
             // eslint-disable-next-line default-case
             switch (shapeType.value) {
             case '线': {
-                drawObj = new L.Draw.Polyline(_map, {
+                drawObj = new L.Draw.Polyline(baseMap, {
                     shapeOptions: {
                         color: shape.lineColor,
                         weight: shape.lineWidth,
@@ -102,7 +102,7 @@ export default defineComponent({
                 break
             }
             case '多边形': {
-                drawObj = new L.Draw.Polygon(_map, {
+                drawObj = new L.Draw.Polygon(baseMap, {
                     shapeOptions: {
                         color: shape.lineColor,
                         weight: shape.lineWidth,
@@ -114,7 +114,7 @@ export default defineComponent({
                 break
             }
             case '矩形': {
-                drawObj = new L.Draw.Rectangle(_map, {
+                drawObj = new L.Draw.Rectangle(baseMap, {
                     shapeOptions: {
                         color: shape.lineColor,
                         weight: shape.lineWidth,
@@ -126,7 +126,7 @@ export default defineComponent({
                 break
             }
             case '圆形': {
-                drawObj = new L.Draw.Circle(_map, {
+                drawObj = new L.Draw.Circle(baseMap, {
                     shapeOptions: {
                         color: shape.lineColor,
                         weight: shape.lineWidth,
@@ -151,7 +151,7 @@ export default defineComponent({
                 // 图层组
                 drawLayerGrounp = new L.FeatureGroup()
                 // 添加
-                _map.addLayer(drawLayerGrounp)
+                baseMap.addLayer(drawLayerGrounp)
             }
             // 添加到图层组
             drawLayerGrounp.addLayer(drawLayer)
@@ -243,7 +243,7 @@ export default defineComponent({
         function deleteShape () {
             save()
             if (drawLayerGrounp && Object.keys(drawLayerGrounp._layers).length !== 0) {
-                deleteObj = new L.EditToolbar.Delete(_map, {
+                deleteObj = new L.EditToolbar.Delete(baseMap, {
                     featureGroup: drawLayerGrounp
                 })
                 isOpenDelete.value = true
@@ -259,7 +259,7 @@ export default defineComponent({
         function changeShape () {
             save()
             if (drawLayerGrounp && Object.keys(drawLayerGrounp._layers).length !== 0) {
-                editObj = new L.EditToolbar.Edit(_map, {
+                editObj = new L.EditToolbar.Edit(baseMap, {
                     featureGroup: drawLayerGrounp,
                     selectedPathOptions: drawControl.options.edit.selectedPathOptions
                 })
@@ -296,7 +296,7 @@ export default defineComponent({
             deleteObj = null
             // 删除全部绘制的图层
             // 取消绘制完监听事件，避免其它地方也监听了 CREATED 事件
-            _map.off(L.Draw.Event.CREATED, drawCreatedBack)
+            baseMap.off(L.Draw.Event.CREATED, drawCreatedBack)
             if (drawLayerGrounp) {
                 drawLayerGrounp.off('click', editShapeBack)
                 drawLayerGrounp.clearLayers()

@@ -52,7 +52,7 @@ export default defineComponent({
   right: 1%;
   z-index: 2;
   width: 380px;
-  height: 80%;
+  height: 85%;
   background-color: red;
 }
 </style>
