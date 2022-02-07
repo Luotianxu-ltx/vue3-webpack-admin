@@ -21,7 +21,7 @@
     </div>
     <div class='tab-page'>
         <el-pagination class='page' small hide-on-single-page layout='prev, pager, next' :total='list.total'
-                       :pager-count='4'
+                       :pager-count='5'
                        :page-size='list.pageSize' v-model:currentPage='list.currentPage'></el-pagination>
     </div>
 </template>

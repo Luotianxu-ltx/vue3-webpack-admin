@@ -55,12 +55,11 @@ export default defineComponent({
         function initMapTools(map:any, baseMapLayer:any, mapType: string) {
             mapChange.value.initMapChange(map, baseMapLayer, mapType)
             mapShowSetting.value.initMapSetting(map)
-            // mapFunction.value.initMapFunction(map)
+            mapFunction.value.initMapFunction(map)
             mapStatus.value.initMapStatus(map)
         }
 
         function closeMapControl() {
-            // store.commit('system/SET_SYSTEM_MAP_CONTROL', false)
             isShowMapControl.value = false
             // store.commit('system/SET_SYSTEM_MAP_CONTROL_SIGN', ['navigation', 'pathPlanning', 'mapMark', 'mapLocation'])
         }
@@ -158,8 +157,6 @@ export default defineComponent({
             }
 
             .item {
-                //margin-top: 10px;
-
                 .title {
                     margin-top: 10px;
                     padding: 0 15px;
@@ -180,9 +177,6 @@ export default defineComponent({
                         border-radius: 5px;
                     }
                 }
-            }
-
-            .box-content {
             }
         }
     }

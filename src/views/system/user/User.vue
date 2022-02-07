@@ -272,7 +272,7 @@ export default defineComponent({
             type: '',
             time: '',
             pageIndex: 1,
-            pageSize: 20,
+            pageSize: 25,
             total: 0,
             data: [],
             loading: false
