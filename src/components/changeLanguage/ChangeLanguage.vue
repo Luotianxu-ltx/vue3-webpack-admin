@@ -3,7 +3,11 @@
         <el-dropdown trigger="click" @command="handleCommand">
             <span class="el-dropdown-link">
                 <el-tooltip content="语言" placement="right" effect="light">
-                    <Icon icon="duoyuyan" :font="font" :color="colorFont"></Icon>
+                    <Icon
+                        icon="duoyuyan"
+                        :font="font"
+                        :color="colorFont"
+                    ></Icon>
                 </el-tooltip>
             </span>
             <template #dropdown>

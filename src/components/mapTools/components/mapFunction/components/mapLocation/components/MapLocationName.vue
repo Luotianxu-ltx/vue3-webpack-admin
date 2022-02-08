@@ -1,28 +1,61 @@
 <template>
-    <div class='tab-content'>
-        <el-form ref='nameForm' :model='nameFormInput' :rules='nameFormRules' size='small'>
-            <el-form-item prop='name'>
-                <el-input class='input' v-model='nameFormInput.name' placeholder='请输入名称'>
+    <div class="tab-content">
+        <el-form
+            ref="nameForm"
+            :model="nameFormInput"
+            :rules="nameFormRules"
+            size="small"
+        >
+            <el-form-item prop="name">
+                <el-input
+                    class="input"
+                    v-model="nameFormInput.name"
+                    placeholder="请输入名称"
+                >
                     <template #prepend>名称</template>
                 </el-input>
             </el-form-item>
-            <el-form-item prop='city'>
-                <el-input class='input' v-model='nameFormInput.city' placeholder='请输入城市'>
+            <el-form-item prop="city">
+                <el-input
+                    class="input"
+                    v-model="nameFormInput.city"
+                    placeholder="请输入城市"
+                >
                     <template #prepend>城市</template>
                 </el-input>
             </el-form-item>
-            <el-button class='btn' type='primary' :icon='Search' :loading='loading' @click='searchName()'>搜索</el-button>
+            <el-button
+                class="btn"
+                type="primary"
+                :icon="Search"
+                :loading="loading"
+                @click="searchName()"
+            >
+                搜索
+            </el-button>
         </el-form>
-        <ul class='item' v-show='list.data.length > 0' v-for='(item,index) in list.data' :key='index'
-            @click='move(item, 1)'>
+        <ul
+            class="item"
+            v-show="list.data.length > 0"
+            v-for="(item, index) in list.data"
+            :key="index"
+            @click="move(item, 1)"
+        >
             <li>{{ item.name }}</li>
             <li>{{ item.pname }}>{{ item.cityname }}>{{ item.adname }}</li>
         </ul>
     </div>
-    <div class='tab-page'>
-        <el-pagination class='page' small hide-on-single-page layout='prev, pager, next' :total='list.total'
-                       :pager-count='5'
-                       :page-size='list.pageSize' v-model:currentPage='list.currentPage'></el-pagination>
+    <div class="tab-page">
+        <el-pagination
+            class="page"
+            small
+            hide-on-single-page
+            layout="prev, pager, next"
+            :total="list.total"
+            :pager-count="5"
+            :page-size="list.pageSize"
+            v-model:currentPage="list.currentPage"
+        ></el-pagination>
     </div>
 </template>
 
@@ -56,9 +89,12 @@ export default defineComponent({
             pageSize: 6,
             total: 0
         })
-        watch(() => list.currentPage, () => {
-            searchName()
-        })
+        watch(
+            () => list.currentPage,
+            () => {
+                searchName()
+            }
+        )
         const loading = ref(false)
         const searchName = async () => {
             nameForm.value.validate(async (valid) => {
@@ -137,7 +173,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .tab-content {
         margin: 0 5px;
         display: flex;
@@ -206,5 +242,4 @@ export default defineComponent({
             background-color: #fff !important;
         }
     }
-
 </style>

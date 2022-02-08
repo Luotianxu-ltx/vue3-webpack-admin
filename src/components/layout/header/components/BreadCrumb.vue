@@ -4,7 +4,13 @@
             v-for="(item, index) in breadcrumbList"
             :key="index"
         >
-        <el-link :underline="false" :disabled="index === breadcrumbList.length - 1" @click="goto(item.path)">{{item.name}}</el-link>
+            <el-link
+                :underline="false"
+                :disabled="index === breadcrumbList.length - 1"
+                @click="goto(item.path)"
+            >
+                {{ item.name }}
+            </el-link>
         </el-breadcrumb-item>
     </el-breadcrumb>
 </template>

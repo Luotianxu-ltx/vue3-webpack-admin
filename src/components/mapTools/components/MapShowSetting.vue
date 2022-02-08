@@ -1,41 +1,86 @@
 <template>
-    <div class='item'>
-        <div class='title'>显示设置</div>
-        <div class='select'>
-            <div class='selectItem'>
+    <div class="item">
+        <div class="title">显示设置</div>
+        <div class="select">
+            <div class="selectItem">
                 缩放
-                <el-switch v-model='isShowZoomTool' inline-prompt active-text='开' inactive-text='关'
-                           @change='showZoomTool' />
+                <el-switch
+                    v-model="isShowZoomTool"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showZoomTool"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 比例尺
-                <el-switch v-model='isShowScale' inline-prompt active-text='开' inactive-text='关' @change='showScale' />
+                <el-switch
+                    v-model="isShowScale"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showScale"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 版权
-                <el-switch v-model='isShowCopyright' inline-prompt active-text='开' inactive-text='关'
-                           @change='showCopyRight' />
+                <el-switch
+                    v-model="isShowCopyright"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showCopyRight"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 路况
-                <el-switch v-model='isShowRoad' inline-prompt active-text='开' inactive-text='关' @change='showRoad' />
+                <el-switch
+                    v-model="isShowRoad"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showRoad"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 鹰眼图
-                <el-switch v-model='isShowEagleEye' inline-prompt active-text='开' inactive-text='关'
-                           @change='showEagleEye' />
+                <el-switch
+                    v-model="isShowEagleEye"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showEagleEye"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 鼠标经纬度
-                <el-switch v-model='isShowMouse' inline-prompt active-text='开' inactive-text='关' @change='showMouse' />
+                <el-switch
+                    v-model="isShowMouse"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showMouse"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 打印
-                <el-switch v-model='isShowPrint' inline-prompt active-text='开' inactive-text='关' @change='showPrint' />
+                <el-switch
+                    v-model="isShowPrint"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showPrint"
+                />
             </div>
-            <div class='selectItem'>
+            <div class="selectItem">
                 网格
-                <el-switch v-model='isShowGrid' inline-prompt active-text='开' inactive-text='关' @change='showGrid' />
+                <el-switch
+                    v-model="isShowGrid"
+                    inline-prompt
+                    active-text="开"
+                    inactive-text="关"
+                    @change="showGrid"
+                />
             </div>
         </div>
     </div>
@@ -86,7 +131,9 @@ export default defineComponent({
         function showCopyRight() {
             if (isShowCopyright.value) {
                 baseMap.addControl(copyRightControl)
-                baseMap.attributionControl.setPrefix('<span>管理系统模板</span>')
+                baseMap.attributionControl.setPrefix(
+                    '<span>管理系统模板</span>'
+                )
             } else {
                 copyRightControl.remove()
             }
@@ -95,10 +142,14 @@ export default defineComponent({
         // 路况
         const isShowRoad = ref(false)
         const time = new Date().getTime()
-        const traffic = L.tileLayer('http://tm.amap.com/trafficengine/mapabc/traffictile?v=1.0&;t=1&x={x}&y={y}&z={z}&&t=' + time, {
-            maxZoom: 18,
-            minZoom: 1
-        })
+        const traffic = L.tileLayer(
+            'http://tm.amap.com/trafficengine/mapabc/traffictile?v=1.0&;t=1&x={x}&y={y}&z={z}&&t=' +
+                    time,
+            {
+                maxZoom: 18,
+                minZoom: 1
+            }
+        )
 
         function showRoad() {
             if (isShowRoad.value) {
@@ -186,7 +237,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .item {
         margin-top: 10px;
 

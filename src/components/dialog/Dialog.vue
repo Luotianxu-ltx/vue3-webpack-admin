@@ -1,16 +1,16 @@
 <template>
     <el-dialog
-        :model-value='visible'
-        :title=title
+        :model-value="visible"
+        :title="title"
         :width="width + 'px'"
-        :before-close=handleClose
-        :modal=modal
-        :show-close=showClose
-        :close-on-click-modal=closeMode
+        :before-close="handleClose"
+        :modal="modal"
+        :show-close="showClose"
+        :close-on-click-modal="closeMode"
     >
-        <slot name='content'></slot>
-        <div class='dialog-footer'>
-            <slot name='footer'></slot>
+        <slot name="content"></slot>
+        <div class="dialog-footer">
+            <slot name="footer"></slot>
         </div>
     </el-dialog>
 </template>
@@ -59,7 +59,7 @@ export default defineComponent({
     },
     setup(props, context) {
         // 关闭弹窗
-        const handleClose = function() {
+        const handleClose = function () {
             context.emit('update:visible', false)
         }
         return {
@@ -69,7 +69,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .dialog-footer {
         display: flex;
         align-items: center;

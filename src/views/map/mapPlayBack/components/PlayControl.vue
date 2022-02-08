@@ -1,29 +1,38 @@
 <template>
-  <div class="playBack">
-    <el-slider v-model="playBack.active" :max="playBack.data.length"></el-slider>
-    <div class="control">
-      <div class="left">
-        时间：{{ playBack.time }}
-      </div>
-      <div class="center">
-        <i class="iconfont backward" @click="change(0)"></i>
-        <i class="iconfont playCircle" v-show="!playBack.isPlay" @click="play(0)"></i>
-        <i class="iconfont pauseCircle" v-show="playBack.isPlay" @click="play(1)"></i>
-        <i class="iconfont forward" @click="change(1)"></i>
-      </div>
-      <div class="right">
-        <el-radio-group v-model="speed">
-          <el-radio-button label="慢速"></el-radio-button>
-          <el-radio-button label="正常"></el-radio-button>
-          <el-radio-button label="快速"></el-radio-button>
-          <el-radio-button label="极快"></el-radio-button>
-        </el-radio-group>
-      </div>
+    <div class="playBack">
+        <el-slider
+            v-model="playBack.active"
+            :max="playBack.data.length"
+        ></el-slider>
+        <div class="control">
+            <div class="left">时间：{{ playBack.time }}</div>
+            <div class="center">
+                <i class="iconfont backward" @click="change(0)"></i>
+                <i
+                    class="iconfont playCircle"
+                    v-show="!playBack.isPlay"
+                    @click="play(0)"
+                ></i>
+                <i
+                    class="iconfont pauseCircle"
+                    v-show="playBack.isPlay"
+                    @click="play(1)"
+                ></i>
+                <i class="iconfont forward" @click="change(1)"></i>
+            </div>
+            <div class="right">
+                <el-radio-group v-model="speed">
+                    <el-radio-button label="慢速"></el-radio-button>
+                    <el-radio-button label="正常"></el-radio-button>
+                    <el-radio-button label="快速"></el-radio-button>
+                    <el-radio-button label="极快"></el-radio-button>
+                </el-radio-group>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
-<script lang='js'>
+<script lang="js">
 import { defineComponent, reactive, ref, shallowReadonly, watch } from 'vue'
 import dayjs from 'dayjs'
 
@@ -100,41 +109,40 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+    .playBack {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        height: 65px;
+        padding: 0 20px;
+        border-radius: 5px;
+        background-color: #fff;
+        z-index: 2;
 
-.playBack {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 98%;
-  display: flex;
-  flex-direction: column;
-  height: 65px;
-  padding: 0 20px;
-  border-radius: 5px;
-  background-color: #fff;
-  z-index: 2;
+        .control {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-  .control {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            .left {
+                font-size: 12px;
+            }
 
-    .left {
-      font-size: 12px;
-    }
-
-    .center {
-      i {
-        font-size: 30px;
-        padding: 0 5px;
-        cursor: pointer;
-        &:hover {
-          color: #0066ff;
+            .center {
+                i {
+                    font-size: 30px;
+                    padding: 0 5px;
+                    cursor: pointer;
+                    &:hover {
+                        color: #0066ff;
+                    }
+                }
+            }
         }
-      }
     }
-  }
-}
 </style>

@@ -1,12 +1,12 @@
 <template>
-    <div class='map'>
-        <MapBase class='mapBase' @mapInit='mapInit'></MapBase>
-        <MapDraw class='mapDraw' ref='mapDraw'></MapDraw>
-        <MapTools class='mapTools' ref='mapTools'></MapTools>
+    <div class="map">
+        <MapBase class="mapBase" @mapInit="mapInit"></MapBase>
+        <MapDraw class="mapDraw" ref="mapDraw"></MapDraw>
+        <MapTools class="mapTools" ref="mapTools"></MapTools>
     </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import MapBase from '@/components/mapBase/MapBase.vue'
 import MapDraw from '@/components/mapDraw/MapDraw.vue'
@@ -37,7 +37,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .map {
         width: 100%;
         height: 100%;

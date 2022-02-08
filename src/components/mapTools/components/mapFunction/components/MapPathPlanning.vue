@@ -1,49 +1,86 @@
 <template>
     <div>
-        <el-button class='btnItem' type='primary' @click='showMapLocation' v-show='!isShowMapControl'>路径规划
+        <el-button
+            class="btnItem"
+            type="primary"
+            @click="showMapLocation"
+            v-show="!isShowMapControl"
+        >
+            路径规划
         </el-button>
-        <div v-show="mapControlSign.includes('pathPlanning') && isShowMapControl">
-            <div class='toolContent'>
-                <div class='main'>
-                    <div class='left'>
-                        <el-icon :size='20'>
-                            <Sort @click='change()'></Sort>
+        <div
+            v-show="mapControlSign.includes('pathPlanning') && isShowMapControl"
+        >
+            <div class="toolContent">
+                <div class="main">
+                    <div class="left">
+                        <el-icon :size="20">
+                            <Sort @click="change()"></Sort>
                         </el-icon>
                     </div>
-                    <div class='right'>
-                        <el-form ref='localForm' :model='localFormInput' :rules='localFormRules'>
-                            <el-form-item prop='beginName'>
-                                <el-input class='input' v-model='localFormInput.beginName' placeholder='请点击图标选择起点'>
+                    <div class="right">
+                        <el-form
+                            ref="localForm"
+                            :model="localFormInput"
+                            :rules="localFormRules"
+                        >
+                            <el-form-item prop="beginName">
+                                <el-input
+                                    class="input"
+                                    v-model="localFormInput.beginName"
+                                    placeholder="请点击图标选择起点"
+                                >
                                     <template #append>
-                                        <MapLocationInput ref='mapLocationInput'
-                                                          @update='getLocation'></MapLocationInput>
+                                        <MapLocationInput
+                                            ref="mapLocationInput"
+                                            @update="getLocation"
+                                        ></MapLocationInput>
                                     </template>
                                 </el-input>
                             </el-form-item>
-                            <el-form-item prop='endName'>
-                                <el-input class='input' v-model='localFormInput.endName' placeholder='请点击图标选择终点'>
+                            <el-form-item prop="endName">
+                                <el-input
+                                    class="input"
+                                    v-model="localFormInput.endName"
+                                    placeholder="请点击图标选择终点"
+                                >
                                     <template #append>
-                                        <MapLocationInput ref='mapLocationInput1'
-                                                          @update='getLocation1'></MapLocationInput>
+                                        <MapLocationInput
+                                            ref="mapLocationInput1"
+                                            @update="getLocation1"
+                                        ></MapLocationInput>
                                     </template>
                                 </el-input>
                             </el-form-item>
                         </el-form>
                     </div>
                 </div>
-                <el-radio-group class='choose' v-model='type'>
-                    <el-radio :label='0'>步行</el-radio>
-                    <el-radio :label='1'>驾车</el-radio>
+                <el-radio-group class="choose" v-model="type">
+                    <el-radio :label="0">步行</el-radio>
+                    <el-radio :label="1">驾车</el-radio>
                 </el-radio-group>
-                <el-button class='btn' type='primary' :icon='Search' @click='search()'>搜索</el-button>
-                <div class='list' v-show='isShowList'>
-                    <div class='top'>
+                <el-button
+                    class="btn"
+                    type="primary"
+                    :icon="Search"
+                    @click="search()"
+                >
+                    搜索
+                </el-button>
+                <div class="list" v-show="isShowList">
+                    <div class="top">
                         <span>距离：{{ list.distance }}米</span>
-                        <span>时间：{{ formatterSToHMS(Number(list.duration)) }}</span>
+                        <span>
+                            时间：{{ formatterSToHMS(Number(list.duration)) }}
+                        </span>
                     </div>
-                    <div class='bottom'>
-                        <div class='item' v-for='(item,index) in list.data' :key='index'>
-                            <div class='info'>
+                    <div class="bottom">
+                        <div
+                            class="item"
+                            v-for="(item, index) in list.data"
+                            :key="index"
+                        >
+                            <div class="info">
                                 <span>距离：{{ item.distance }}米</span>
                                 <span>时间：{{ item.duration }}</span>
                             </div>
@@ -59,12 +96,10 @@
 <script>
 import { defineComponent, reactive, ref, watch } from 'vue'
 import L from '@/lib/leaflet'
-import { useStore } from 'vuex'
 import { Search, Sort } from '@element-plus/icons'
 import MapLocationInput from '@/components/mapLocationInput/MapLocationInput.vue'
 import { getPathDrivingApi, getPathWalkApi } from '@/api/map/mapGaodeApi'
 import { formatterSToHMS } from '@/utils/time'
-import { Key } from '@/store'
 
 export default defineComponent({
     name: 'MapPathPlanning',
@@ -72,7 +107,15 @@ export default defineComponent({
         Sort,
         MapLocationInput
     },
-    setup() {
+    props: {
+        mapControl: { // 父组件 v-model 没有指定参数名，则默认是 modelValue
+            default: []
+        },
+        showControl: {
+            default: false
+        }
+    },
+    setup(props, { emit }) {
         // 初始化
         let baseMap = ''
         let poiGroupLayer = ''
@@ -86,16 +129,16 @@ export default defineComponent({
             poiGroupLayer = new L.FeatureGroup().addTo(baseMap)
         }
 
-        // 展示具体功能
-        const store = useStore(Key)
-        // 是否显示具体功能
-        const isShowMapControl = ref(false)
+        // 是否展示具体功能
+        const isShowMapControl = ref(props.showControl)
+        watch(() => props.showControl, () => { isShowMapControl.value = props.showControl })
         // 控制选择哪个具体功能
-        const mapControlSign = ref(['navigation', 'pathPlanning', 'mapMark', 'mapLocation'])
+        const mapControlSign = ref(props.mapControl)
+        watch(() => props.mapControl, () => { mapControlSign.value = props.mapControl })
 
         function showMapLocation() {
-            store.commit('system/SET_SYSTEMbaseMap_CONTROL', true)
-            store.commit('system/SET_SYSTEMbaseMap_CONTROL_SIGN', ['pathPlanning'])
+            emit('update:showControl', true)
+            emit('update:mapControl', ['pathPlanning'])
         }
 
         // 搜索
@@ -164,11 +207,14 @@ export default defineComponent({
                     list.distance = res.route.paths[0].distance
                     list.duration = res.route.paths[0].duration
                     const arr = []
-                    list.data.forEach(item => {
+                    list.data.forEach((item) => {
                         const listRes = item.polyline.split(';')
-                        listRes.forEach(child => {
+                        listRes.forEach((child) => {
                             const childlng = child.split(',')
-                            arr.push([Number(childlng[1]), Number(childlng[0])])
+                            arr.push([
+                                Number(childlng[1]),
+                                Number(childlng[0])
+                            ])
                         })
                     })
                     L.polyline(arr, {
@@ -243,7 +289,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .btnItem {
         width: 100px;
         height: 30px;

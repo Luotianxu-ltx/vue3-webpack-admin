@@ -1,7 +1,16 @@
 <template>
     <div>
-        <el-button class='btnItem' type='primary' v-show='!isOpen' @click='open()'>地图测距</el-button>
-        <el-button class='btnItem' type='info' v-show='isOpen'>关闭测距</el-button>
+        <el-button
+            class="btnItem"
+            type="primary"
+            v-show="!isOpen"
+            @click="open()"
+        >
+            地图测距
+        </el-button>
+        <el-button class="btnItem" type="info" v-show="isOpen">
+            关闭测距
+        </el-button>
     </div>
 </template>
 
@@ -34,7 +43,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .btnItem {
         width: 100px;
         height: 30px;

@@ -1,49 +1,45 @@
 <template>
-    <div class='mapStatus'>
-        <el-button class='btn' type='primary' @click='showDialog'>地图状态</el-button>
-        <Dialog v-model:visible='dialogVisible' title='地图状态' width='1000' visible>
+    <div class="mapStatus">
+        <el-button class="btn" type="primary" @click="showDialog">
+            地图状态
+        </el-button>
+        <Dialog
+            v-model:visible="dialogVisible"
+            title="地图状态"
+            width="1000"
+            visible
+        >
             <template #content>
-                <el-descriptions
-                    class='margin-top'
-                    :column='3'
-                    border
-                >
-                    <el-descriptions-item :span='3'>
-                        <template #label>
-                            中心点经纬度
-                        </template>
+                <el-descriptions class="margin-top" :column="3" border>
+                    <el-descriptions-item :span="3">
+                        <template #label>中心点经纬度</template>
                         经度：
-                        <el-tag>{{ latitude }}</el-tag> &nbsp;&nbsp;纬度：
+                        <el-tag>{{ latitude }}</el-tag>
+                        &nbsp;&nbsp;纬度：
                         <el-tag>{{ longitude }}</el-tag>
                     </el-descriptions-item>
                     <el-descriptions-item>
-                        <template #label>
-                            当前缩放级别
-                        </template>
+                        <template #label>当前缩放级别</template>
                         <el-tag>{{ zoom }}</el-tag>
                     </el-descriptions-item>
                     <el-descriptions-item>
-                        <template #label>
-                            最小缩放级别
-                        </template>
+                        <template #label>最小缩放级别</template>
                         <el-tag>{{ minZoom }}</el-tag>
                     </el-descriptions-item>
                     <el-descriptions-item>
-                        <template #label>
-                            最大缩放级别
-                        </template>
+                        <template #label>最大缩放级别</template>
                         <el-tag>{{ maxZoom }}</el-tag>
                     </el-descriptions-item>
-                    <el-descriptions-item :span='3'>
-                        <template #label>
-                            地图范围
-                        </template>
+                    <el-descriptions-item :span="3">
+                        <template #label>地图范围</template>
                         经度：
                         <el-tag>{{ bound.xmin }}</el-tag>
-                        至&nbsp;<el-tag>{{ bound.xmax }}</el-tag>
+                        至&nbsp;
+                        <el-tag>{{ bound.xmax }}</el-tag>
                         纬度：
                         <el-tag>{{ bound.ymin }}</el-tag>
-                        至&nbsp;<el-tag>{{ bound.ymax }}</el-tag>
+                        至&nbsp;
+                        <el-tag>{{ bound.ymax }}</el-tag>
                     </el-descriptions-item>
                 </el-descriptions>
             </template>
@@ -113,7 +109,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .mapStatus {
         width: 100%;
 

@@ -1,8 +1,8 @@
 <template>
-  <MapBase class="mapBase" @mapInit = 'mapInit'></MapBase>
+    <MapBase class="mapBase" @mapInit="mapInit"></MapBase>
 </template>
 
-<script lang='js '>
+<script lang="js ">
 import { defineComponent } from 'vue'
 import L from '@/lib/leaflet'
 import MapBase from '@/components/mapBase/MapBase.vue'
@@ -29,8 +29,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.map {
-  width: 100%;
-  height: 100%;
-}
+    .map {
+        width: 100%;
+        height: 100%;
+    }
 </style>

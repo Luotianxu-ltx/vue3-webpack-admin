@@ -1,12 +1,16 @@
 <template>
-  <div class='mapBase'>
-    <div class='map' id='map'></div>
-    <PlayControl ref='playControl' :data='playBack.data' @showMarker='showMarker'></PlayControl>
-    <PlayTable ref='playTable'></PlayTable>
-  </div>
+    <div class="mapBase">
+        <div class="map" id="map"></div>
+        <PlayControl
+            ref="playControl"
+            :data="playBack.data"
+            @showMarker="showMarker"
+        ></PlayControl>
+        <PlayTable ref="playTable"></PlayTable>
+    </div>
 </template>
 
-<script lang='js'>
+<script lang="js">
 import { defineComponent, onMounted, reactive, ref } from 'vue'
 import L from '@/lib/leaflet'
 import { getPlayBackListApi } from '@/api/map/mapApi'
@@ -128,17 +132,17 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
-  .mapBase {
-    width: 100%;
-    height: 100%;
-    position: relative;
+<style scoped lang="scss">
+    .mapBase {
+        width: 100%;
+        height: 100%;
+        position: relative;
 
-    .map {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: 2;
+        .map {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
     }
-  }
 </style>

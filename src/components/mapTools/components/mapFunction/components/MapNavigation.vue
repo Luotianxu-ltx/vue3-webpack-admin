@@ -1,6 +1,12 @@
 <template>
     <div>
-        <el-button class='btnItem' type='primary' @click='showMapLocation' v-show='!isShowMapControl'>城市导航
+        <el-button
+            class="btnItem"
+            type="primary"
+            @click="showMapLocation"
+            v-show="!isShowMapControl"
+        >
+            城市导航
         </el-button>
         <div v-show="mapControlSign.includes('navigation') && isShowMapControl">
             00000
@@ -9,31 +15,36 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import { useStore } from 'vuex'
-import { Key } from '@/store'
+import { defineComponent, ref, watch } from 'vue'
 
 export default defineComponent({
     name: 'MapNavigation',
-    setup() {
+    props: {
+        mapControl: { // 父组件 v-model 没有指定参数名，则默认是 modelValue
+            default: []
+        },
+        showControl: {
+            default: false
+        }
+    },
+    setup(props, { emit }) {
         // 初始化
         let baseMap = ''
-
         function initMapNavigation(map) {
             baseMap = map
             console.log(baseMap)
         }
 
-        // 展示具体功能
-        const store = useStore(Key)
-        // 是否显示具体功能
-        const isShowMapControl = ref(false)
+        // 是否展示具体功能
+        const isShowMapControl = ref(props.showControl)
+        watch(() => props.showControl, () => { isShowMapControl.value = props.showControl })
         // 控制选择哪个具体功能
-        const mapControlSign = ref(['navigation', 'pathPlanning', 'mapMark', 'mapLocation'])
+        const mapControlSign = ref(props.mapControl)
+        watch(() => props.mapControl, () => { mapControlSign.value = props.mapControl })
 
         function showMapLocation() {
-            store.commit('system/SET_SYSTEM_MAP_CONTROL', true)
-            store.commit('system/SET_SYSTEM_MAP_CONTROL_SIGN', ['navigation'])
+            emit('update:showControl', true)
+            emit('update:mapControl', ['navigation'])
         }
 
         return {
@@ -46,7 +57,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .btnItem {
         width: 100px;
         height: 30px;

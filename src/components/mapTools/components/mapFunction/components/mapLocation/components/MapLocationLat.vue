@@ -1,23 +1,45 @@
 <template>
-    <div class='tab-content'>
-        <el-form ref='localForm' :model='localFormInput' :rules='localFormRules'>
-            <el-form-item prop='longitude'>
-                <el-input class='input' v-model='localFormInput.longitude' placeholder='请输入经度'>
+    <div class="tab-content">
+        <el-form
+            ref="localForm"
+            :model="localFormInput"
+            :rules="localFormRules"
+        >
+            <el-form-item prop="longitude">
+                <el-input
+                    class="input"
+                    v-model="localFormInput.longitude"
+                    placeholder="请输入经度"
+                >
                     <template #prepend>经度</template>
                 </el-input>
             </el-form-item>
-            <el-form-item prop='latitude'>
-                <el-input class='input' v-model='localFormInput.latitude' placeholder='请输入纬度'>
+            <el-form-item prop="latitude">
+                <el-input
+                    class="input"
+                    v-model="localFormInput.latitude"
+                    placeholder="请输入纬度"
+                >
                     <template #prepend>纬度</template>
                 </el-input>
             </el-form-item>
         </el-form>
-        <el-button class='btn' type='primary' :icon='Search' :loading='loading' @click='searchLat(localInfo.location)'>
+        <el-button
+            class="btn"
+            type="primary"
+            :icon="Search"
+            :loading="loading"
+            @click="searchLat(localInfo.location)"
+        >
             搜索
         </el-button>
-        <ul class='item' v-show='localInfo.title' @click='move'>
+        <ul class="item" v-show="localInfo.title" @click="move">
             <li>{{ localInfo.title }}</li>
-            <li>{{ localInfo.province }}>{{ localInfo.district }}>{{ localInfo.township }}</li>
+            <li>
+                {{ localInfo.province }}>{{ localInfo.district }}>{{
+                    localInfo.township
+                }}
+            </li>
         </ul>
     </div>
 </template>
@@ -73,10 +95,14 @@ export default defineComponent({
                     }
                     if (res.regeocode.formatted_address.length !== 0) {
                         localInfo.title = res.regeocode.formatted_address
-                        localInfo.province = res.regeocode.addressComponent.province
-                        localInfo.district = res.regeocode.addressComponent.district
-                        localInfo.township = res.regeocode.addressComponent.township
-                        localInfo.location = res.regeocode.addressComponent.streetNumber.location
+                        localInfo.province =
+                                res.regeocode.addressComponent.province
+                        localInfo.district =
+                                res.regeocode.addressComponent.district
+                        localInfo.township =
+                                res.regeocode.addressComponent.township
+                        localInfo.location =
+                                res.regeocode.addressComponent.streetNumber.location
                     }
                     loading.value = false
                 } else {
@@ -122,7 +148,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
     .tab-content {
         margin: 0 5px;
 

@@ -1,23 +1,43 @@
 <template>
-    <div class='tools'>
-        <div class='toolsBox' @click='isShowToolsContent = true'>
-            <i class='iconfont gongju'></i>工具箱
+    <div class="tools">
+        <div class="toolsBox" @click="isShowToolsContent = true">
+            <i class="iconfont gongju"></i>
+            工具箱
         </div>
-        <transition name='slide-fade'>
-            <div class='content' v-show='isShowToolsContent'>
-                <div class='top' id='top'>
+        <transition name="slide-fade">
+            <div class="content" v-show="isShowToolsContent">
+                <div class="top" id="top">
                     地图工具箱
-                    <div class='closeBtn'>
-                        <i class='iconfont guanbiyuan close' @click='isShowToolsContent = false'></i>
-                        <i class='iconfont xiangyou close' @click='closeMapControl' v-show='isShowMapControl'></i>
+                    <div class="closeBtn">
+                        <i
+                            class="iconfont guanbiyuan close"
+                            @click="isShowToolsContent = false"
+                        ></i>
+                        <i
+                            class="iconfont xiangyou close"
+                            @click="closeMapControl"
+                            v-show="isShowMapControl"
+                        ></i>
                     </div>
                 </div>
-                <el-scrollbar height='500px'>
-                    <div class='box-content item'>
-                        <MapChange ref='mapChange' v-show='!isShowMapControl'></MapChange>
-                        <MapFunction ref='mapFunction'></MapFunction>
-                        <MapShowSetting ref='mapShowSetting' v-show='!isShowMapControl'></MapShowSetting>
-                        <MapStatusDialog ref='mapStatus' v-show='!isShowMapControl'></MapStatusDialog>
+                <el-scrollbar height="500px">
+                    <div class="box-content item">
+                        <MapChange
+                            ref="mapChange"
+                            v-show="!isShowMapControl"
+                        ></MapChange>
+                        <MapFunction
+                            ref="mapFunction"
+                            v-model:showMapControl = 'isShowMapControl'
+                        ></MapFunction>
+                        <MapShowSetting
+                            ref="mapShowSetting"
+                            v-show="!isShowMapControl"
+                        ></MapShowSetting>
+                        <MapStatusDialog
+                            ref="mapStatus"
+                            v-show="!isShowMapControl"
+                        ></MapStatusDialog>
                     </div>
                 </el-scrollbar>
             </div>
@@ -25,7 +45,7 @@
     </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import MapShowSetting from '@/components/mapTools/components/MapShowSetting.vue'
 import MapChange from '@/components/mapTools/components/MapChange.vue'
@@ -52,7 +72,11 @@ export default defineComponent({
         const mapShowSetting = ref()
         const mapStatus = ref()
 
-        function initMapTools(map:any, baseMapLayer:any, mapType: string) {
+        function initMapTools(
+            map: any,
+            baseMapLayer: any,
+            mapType: string
+        ) {
             mapChange.value.initMapChange(map, baseMapLayer, mapType)
             mapShowSetting.value.initMapSetting(map)
             mapFunction.value.initMapFunction(map)
@@ -61,6 +85,14 @@ export default defineComponent({
 
         function closeMapControl() {
             isShowMapControl.value = false
+            mapFunction.value.mapControlSign.value = [
+                'navigation',
+                'pathPlanning',
+                'mapMark',
+                'mapLocation'
+            ]
+            console.log(1234)
+            console.log(mapFunction.value.mapControlSign.value)
             // store.commit('system/SET_SYSTEM_MAP_CONTROL_SIGN', ['navigation', 'pathPlanning', 'mapMark', 'mapLocation'])
         }
 
@@ -78,8 +110,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
-
+<style scoped lang="scss">
     .tools {
         position: relative;
 
@@ -101,7 +132,8 @@ export default defineComponent({
 
         /* 可以设置不同的进入和离开动画 */
         /* 设置持续时间和动画函数 */
-        .slide-fade-inter, .slide-fade-inter-to {
+        .slide-fade-inter,
+        .slide-fade-inter-to {
             transform: translateX(-250px);
         }
 
@@ -110,11 +142,11 @@ export default defineComponent({
         }
 
         .slide-fade-enter-active {
-            transition: all .4s ease;
+            transition: all 0.4s ease;
         }
 
         .slide-fade-leave-active {
-            transition: all .4s ease;
+            transition: all 0.4s ease;
         }
 
         .slide-fade-leave-to {
@@ -180,5 +212,4 @@ export default defineComponent({
             }
         }
     }
-
 </style>

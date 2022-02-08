@@ -1,17 +1,17 @@
 <template>
-  <el-container style='height: 100%'>
-    <el-aside :width="isCollapse ? '64px' : '200px'">
-      <Aside></Aside>
-    </el-aside>
-    <el-container>
-      <el-header>
-        <Header></Header>
-      </el-header>
-      <el-main>
-        <Content></Content>
-      </el-main>
+    <el-container style="height: 100%">
+        <el-aside :width="isCollapse ? '64px' : '200px'">
+            <Aside></Aside>
+        </el-aside>
+        <el-container>
+            <el-header>
+                <Header></Header>
+            </el-header>
+            <el-main>
+                <Content></Content>
+            </el-main>
+        </el-container>
     </el-container>
-  </el-container>
 </template>
 <script lang="ts">
 import { useStore } from 'vuex'
@@ -28,9 +28,11 @@ export default defineComponent({
         Header,
         Content
     },
-    setup () {
+    setup() {
         const store = useStore(Key)
-        const isCollapse = computed(() => store.state.system?.SYSTEM_COLLAPSE)
+        const isCollapse = computed(
+            () => store.state.system?.SYSTEM_COLLAPSE
+        )
         return {
             isCollapse
         }
@@ -38,5 +40,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

@@ -1,5 +1,5 @@
 <template>
-  <el-icon class="icon" @click="getLocation()"><location /></el-icon>
+    <el-icon class="icon" @click="getLocation()"><location /></el-icon>
 </template>
 
 <script>
@@ -13,10 +13,10 @@ export default defineComponent({
     components: {
         Location
     },
-    setup (props, context) {
+    setup(props, context) {
         let baseMap = ''
         let poiGroupLayer = ''
-        function initMapLocationInput (map) {
+        function initMapLocationInput(map) {
             baseMap = map
             poiGroupLayer = new L.FeatureGroup().addTo(baseMap)
         }
@@ -27,25 +27,36 @@ export default defineComponent({
         })
         const getLocation = () => {
             baseMap.once('mouseup', async (e) => {
-                latlng.latlng = e.latlng// {lat: 30.59, lng: 114.32}
+                latlng.latlng = e.latlng // {lat: 30.59, lng: 114.32}
             })
         }
 
         // 添加图标
-        watch(() => latlng.latlng, async () => {
-            latlng.name = await search(latlng.latlng.lng, latlng.latlng.lat)
-            if (poiGroupLayer) {
-                poiGroupLayer.clearLayers()
+        watch(
+            () => latlng.latlng,
+            async () => {
+                latlng.name = await search(
+                    latlng.latlng.lng,
+                    latlng.latlng.lat
+                )
+                if (poiGroupLayer) {
+                    poiGroupLayer.clearLayers()
+                }
+                const marker = L.marker([
+                    latlng.latlng.lat,
+                    latlng.latlng.lng
+                ])
+                const content = `<span>${latlng.name}</span><br><span>经度：${latlng.latlng.lng} 纬度：${latlng.latlng.lat}</span>`
+                marker
+                    .bindTooltip(content, {
+                        direction: 'top',
+                        offset: [-15, -10]
+                    })
+                    .openTooltip()
+                poiGroupLayer.addLayer(marker)
+                context.emit('update', latlng)
             }
-            const marker = L.marker([latlng.latlng.lat, latlng.latlng.lng])
-            const content = `<span>${latlng.name}</span><br><span>经度：${latlng.latlng.lng} 纬度：${latlng.latlng.lat}</span>`
-            marker.bindTooltip(content, {
-                direction: 'top',
-                offset: [-15, -10]
-            }).openTooltip()
-            poiGroupLayer.addLayer(marker)
-            context.emit('update', latlng)
-        })
+        )
 
         // 搜索地名
         const search = async (lng, lat) => {
@@ -58,12 +69,12 @@ export default defineComponent({
         }
 
         // 设置数据
-        function set (data) {
+        function set(data) {
             latlng.latlng = data.latlng
             latlng.name = data.name
         }
 
-        function clear () {
+        function clear() {
             if (poiGroupLayer) {
                 poiGroupLayer.clearLayers()
             }
@@ -80,7 +91,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.icon {
-  cursor: pointer;
-}
+    .icon {
+        cursor: pointer;
+    }
 </style>

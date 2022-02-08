@@ -60,10 +60,13 @@ export default defineComponent({
         )
         // 图标
         const state = reactive({
-            circleUrl: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
+            circleUrl:
+                    'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
             list: null
         })
-        const user = computed(() => JSON.parse(store.state.user?.USER_INFO as string))
+        const user = computed(() =>
+            JSON.parse(store.state.user?.USER_INFO as string)
+        )
 
         // 获取菜单列表
         onMounted(() => {
@@ -73,7 +76,10 @@ export default defineComponent({
             const res = await getUserPermissionsApi({ id: user.value.id })
             if (res.status === 200) {
                 state.list = res.data.list as any
-                store.commit('system/SET_SYSTEM_PAGE_LIST',JSON.stringify(res.data.list))
+                store.commit(
+                    'system/SET_SYSTEM_PAGE_LIST',
+                    JSON.stringify(res.data.list)
+                )
             } else {
                 ElMessage.error('获取菜单失败,请重新登录!')
                 await router.push('/login')
@@ -81,7 +87,9 @@ export default defineComponent({
         }
 
         // 当前页面
-        const activeRouter = computed(() => store.state.system?.SYSTEM_ACTIVE_ROUTER)
+        const activeRouter = computed(
+            () => store.state.system?.SYSTEM_ACTIVE_ROUTER
+        )
 
         // 路由跳转
         function navRouter(item: any) {

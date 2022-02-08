@@ -1,8 +1,8 @@
 <template>
-    <MapBase @mapInitBase='mapInit'></MapBase>
+    <MapBase @mapInitBase="mapInit"></MapBase>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import L from '@/lib/leaflet'
 import MapBase from '@/components/mapBase/MapBase.vue'
@@ -12,7 +12,7 @@ export default defineComponent({
     components: {
         MapBase
     },
-    setup () {
+    setup() {
         let map: L.Map
         const mapInit = (baseMap: L.Map) => {
             map = baseMap
@@ -25,14 +25,17 @@ export default defineComponent({
                 maxZoom: 18
             })
             // 定位成功
-            map.on('locationfound', function(e) {
+            map.on('locationfound', function (e) {
                 console.log(e)
-                L.marker(e.latlng).addTo(map).bindPopup('你的位置').openPopup()
+                L.marker(e.latlng)
+                    .addTo(map)
+                    .bindPopup('你的位置')
+                    .openPopup()
                 L.circle(e.latlng, e.accuracy / 2).addTo(map)
             })
 
             // 注册定位失败事件
-            map.on('locationerror', function(e) {
+            map.on('locationerror', function (e) {
                 console.log('定位出错=====>', e)
             })
         }
@@ -44,8 +47,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.map {
-  width: 100%;
-  height: 100%;
-}
+    .map {
+        width: 100%;
+        height: 100%;
+    }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="screenfull" @click="click">
-    <el-tooltip content="全屏" placement="bottom" effect="light">
-      <i
-        class="iconfont"
-        :class="isFullscreen === true ? 'suoxiao' : 'fullScreen'"
-      ></i>
-    </el-tooltip>
-  </div>
+    <div class="screenfull" @click="click">
+        <el-tooltip content="全屏" placement="bottom" effect="light">
+            <i
+                class="iconfont"
+                :class="isFullscreen === true ? 'suoxiao' : 'fullScreen'"
+            ></i>
+        </el-tooltip>
+    </div>
 </template>
 
 <script lang="ts">
@@ -24,7 +24,7 @@ export default defineComponent({
         onMounted(() => {
             if (sf.isEnabled) {
                 sf.on('change', change)
-                window.addEventListener('keydown', KeyDown, true)// 监听按键事件
+                window.addEventListener('keydown', KeyDown, true) // 监听按键事件
             }
         })
 
@@ -35,20 +35,20 @@ export default defineComponent({
             }
         })
 
-        function KeyDown (event: any) {
+        function KeyDown(event: any) {
             if (event.keyCode === 122) {
                 click()
                 event.returnValue = false
             }
         }
 
-        function change () {
+        function change() {
             if (sf.isEnabled) {
                 isFullscreen.value = sf.isFullscreen
             }
         }
 
-        function click () {
+        function click() {
             if (!sf.isEnabled) {
                 ElMessage({
                     message: '您的浏览器不支持!',
@@ -67,7 +67,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-  .screenfull {
-    cursor: pointer;
-  }
+    .screenfull {
+        cursor: pointer;
+    }
 </style>
