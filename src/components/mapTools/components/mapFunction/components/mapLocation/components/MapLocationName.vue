@@ -67,7 +67,8 @@ import { Search } from '@element-plus/icons'
 
 export default defineComponent({
     name: 'MapLocationName',
-    setup(props, context) {
+    emits: ['move'],
+    setup(props, { emit }) {
         // 按地名搜索
         const nameForm = ref()
         const nameFormInput = reactive({
@@ -147,7 +148,7 @@ export default defineComponent({
                     local: [lng, lat]
                 })
             }
-            context.emit('move', arr)
+            emit('move', arr)
         }
 
         function clear() {

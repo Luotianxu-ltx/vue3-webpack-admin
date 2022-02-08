@@ -94,6 +94,16 @@ export default defineComponent({
             'mapLocation'
         ])
 
+        // 恢复
+        const recover = () => {
+            mapControlSign.value = [
+                'navigation',
+                'pathPlanning',
+                'mapMark',
+                'mapLocation'
+            ]
+        }
+
         return {
             initMapFunction,
             mapLocation,
@@ -102,7 +112,8 @@ export default defineComponent({
             mapNavigation,
             isShowMapControl,
             mapControlSign,
-            mapRanging
+            mapRanging,
+            recover
         }
     }
 })

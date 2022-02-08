@@ -52,7 +52,8 @@ import { ElMessage } from 'element-plus'
 
 export default defineComponent({
     name: 'MapLocationLat',
-    setup(props, context) {
+    emits: ['move'],
+    setup(props, { emit }) {
         // 按照经纬度搜索
         const localForm = ref()
         const localFormInput = reactive({
@@ -120,7 +121,7 @@ export default defineComponent({
                 address: `${localInfo.province}>${localInfo.district}>${localInfo.township}`,
                 local: [lng, lat]
             })
-            context.emit('move', arr)
+            emit('move', arr)
         }
 
         function clear() {

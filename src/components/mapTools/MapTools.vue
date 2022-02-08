@@ -85,15 +85,7 @@ export default defineComponent({
 
         function closeMapControl() {
             isShowMapControl.value = false
-            mapFunction.value.mapControlSign.value = [
-                'navigation',
-                'pathPlanning',
-                'mapMark',
-                'mapLocation'
-            ]
-            console.log(1234)
-            console.log(mapFunction.value.mapControlSign.value)
-            // store.commit('system/SET_SYSTEM_MAP_CONTROL_SIGN', ['navigation', 'pathPlanning', 'mapMark', 'mapLocation'])
+            mapFunction.value.recover()
         }
 
         return {
