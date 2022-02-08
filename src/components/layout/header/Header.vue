@@ -12,6 +12,7 @@
             <Info class="item"></Info>
             <ScreenFull class="item"></ScreenFull>
             <ChangeLanguage class="item"></ChangeLanguage>
+            <Setting class="item"></Setting>
             <Avatar class="item"></Avatar>
         </div>
     </div>
@@ -24,6 +25,7 @@ import ChangeLanguage from '@/components/changeLanguage/ChangeLanguage.vue'
 import ScreenFull from '@/components/layout/header/components/Screenfull.vue'
 import Info from '@/components/layout/header/components/Info.vue'
 import BreadCrumb from '@/components/layout/header/components/BreadCrumb.vue'
+import Setting from '@/components/layout/header/components/Setting.vue'
 import { useStore } from 'vuex'
 import { Key } from '@/store'
 
@@ -34,7 +36,8 @@ export default defineComponent({
         ScreenFull,
         Avatar,
         Info,
-        BreadCrumb
+        BreadCrumb,
+        Setting
     },
     setup() {
         const store = useStore(Key)
@@ -78,6 +81,7 @@ export default defineComponent({
 
             .item {
                 padding: 0 10px;
+                cursor: pointer;
             }
         }
     }

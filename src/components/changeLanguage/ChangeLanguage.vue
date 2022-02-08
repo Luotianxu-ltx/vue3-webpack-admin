@@ -2,7 +2,7 @@
     <div class="changeLanguage">
         <el-dropdown trigger="click" @command="handleCommand">
             <span class="el-dropdown-link">
-                <el-tooltip content="语言" placement="right" effect="light">
+                <el-tooltip content="语言" placement="bottom" effect="light">
                     <Icon
                         icon="duoyuyan"
                         :font="font"
