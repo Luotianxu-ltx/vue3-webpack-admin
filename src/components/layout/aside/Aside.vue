@@ -18,7 +18,7 @@
                     :index="index.toString()"
                 >
                     <template #title>
-                        <Icon :icon="item.icon"></Icon>
+                        <Icon style='margin-right: 5px' :icon="item.icon"></Icon>
                         <span>{{ item.name }}</span>
                     </template>
                     <el-menu-item
@@ -28,7 +28,7 @@
                         @click="navRouter(item1)"
                     >
                         <template #title>
-                            <Icon :icon="item1.icon"></Icon>
+                            <Icon style='margin-right: 5px' :icon="item1.icon"></Icon>
                             <span>{{ item1.name }}</span>
                         </template>
                     </el-menu-item>

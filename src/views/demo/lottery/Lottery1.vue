@@ -89,7 +89,7 @@
 <script lang="js">
 import { ElMessage } from 'element-plus'
 export default {
-    name: 'lottery',
+    name: 'lottery1',
     data() {
         return {
             timesOptions: [

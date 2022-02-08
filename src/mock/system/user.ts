@@ -209,9 +209,9 @@ const permissionsList = [
         children: [
             {
                 id: 13,
-                name: '抽奖',
+                name: '抽奖1',
                 icon: 'choujiang',
-                url: '/demo/lottery'
+                url: '/demo/lottery1'
             },
             {
                 id: 14,
@@ -260,6 +260,12 @@ const permissionsList = [
                 name: 'Loading1',
                 icon: 'rili',
                 url: '/demo/loading1'
+            },
+            {
+                id: 25,
+                name: 'Number',
+                icon: 'rili',
+                url: '/demo/number'
             }
         ]
     }

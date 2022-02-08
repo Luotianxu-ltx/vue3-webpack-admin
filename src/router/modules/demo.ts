@@ -6,12 +6,12 @@ export default [
         component: Layout,
         name: 'demo',
         meta: { title: 'demo' },
-        redirect: '/demo/lottery',
+        redirect: '/demo/lottery1',
         children: [
             {
-                path: 'lottery',
-                name: '抽奖',
-                component: () => import('@/views/demo/lottery/Lottery.vue')
+                path: 'lottery1',
+                name: '抽奖1',
+                component: () => import('@/views/demo/lottery/Lottery1.vue')
             },
             {
                 path: 'calendar',
@@ -52,6 +52,11 @@ export default [
                 path: 'loading1',
                 name: 'Loading1',
                 component: () => import('@/views/demo/loading/Loading1.vue')
+            },
+            {
+                path: 'number',
+                name: 'Number',
+                component: () => import('@/views/demo/number/Number.vue')
             }
         ]
     }

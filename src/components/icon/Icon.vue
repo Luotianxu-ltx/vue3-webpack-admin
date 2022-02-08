@@ -45,7 +45,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
     .icon {
-        width: 24px;
+        //width: 24px;
         text-align: center;
     }
 </style>
