@@ -18,7 +18,7 @@ import MapRanging from '@/components/mapTools/components/mapFunction/components/
 import MapNavigation from '@/components/mapTools/components/mapFunction/components/MapNavigation.vue'
 import MapPathPlanning from '@/components/mapTools/components/mapFunction/components/MapPathPlanning.vue'
 import MapMark from '@/components/mapTools/components/mapFunction/components/MapMark.vue'
-import MapLocation from '@/components/mapTools/components/mapLocation/MapLocation.vue'
+import MapLocation from '@/components/mapTools/components/mapFunction/components/mapLocation/MapLocation.vue'
 import MapArea from '@/components/mapTools/components/mapFunction/components/MapArea.vue'
 
 export default defineComponent({

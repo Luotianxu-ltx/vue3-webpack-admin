@@ -19,8 +19,8 @@
 import { defineComponent, ref, watch } from 'vue'
 import L from '@/lib/leaflet'
 import { useStore } from 'vuex'
-import MapLocationName from '@/components/mapTools/components/mapLocation/components/MapLocationName.vue'
-import MapLocationLat from '@/components/mapTools/components/mapLocation/components/MapLocationLat.vue'
+import MapLocationName from '@/components/mapTools/components/mapFunction/components/mapLocation/components/MapLocationName.vue'
+import MapLocationLat from '@/components/mapTools/components/mapFunction/components/mapLocation/components/MapLocationLat.vue'
 import { Key } from '@/store'
 
 export default defineComponent({
