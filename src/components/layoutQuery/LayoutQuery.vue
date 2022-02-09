@@ -51,7 +51,7 @@ export default defineComponent({
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        padding: 10px 10px 0 10px;
         overflow: hidden;
 
         .query {

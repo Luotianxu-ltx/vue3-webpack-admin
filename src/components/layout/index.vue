@@ -1,7 +1,7 @@
 <template>
     <el-container style='height: 100%'>
         <el-header><Header></Header></el-header>
-        <el-container>
+        <el-container style='overflow: hidden'>
             <Aside></Aside>
             <el-main><Content></Content></el-main>
         </el-container>
