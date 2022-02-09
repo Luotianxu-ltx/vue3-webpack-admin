@@ -1,6 +1,10 @@
 <template>
     <div class="header">
         <div class="left">
+            <div class='top item'>
+                <el-avatar :size='40' :src='circleUrl'></el-avatar>
+                <span class='title'>管理系统模板</span>
+            </div>
             <i
                 class="iconfont"
                 :class="isCollapse ? 'mulushousuo' : 'muluzhankai'"
@@ -19,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, reactive, toRefs } from 'vue'
 import Avatar from '@/components/layout/header/components/Avatar.vue'
 import ChangeLanguage from '@/components/changeLanguage/ChangeLanguage.vue'
 import ScreenFull from '@/components/layout/header/components/Screenfull.vue'
@@ -49,9 +53,17 @@ export default defineComponent({
             store.commit('system/SET_SYSTEM_COLLAPSE', !isCollapse.value)
         }
 
+        // 图标
+        const state = reactive({
+            circleUrl:
+                'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
+            list: null
+        })
+
         return {
             changAside,
-            isCollapse
+            isCollapse,
+            ...toRefs(state)
         }
     }
 })
@@ -69,6 +81,17 @@ export default defineComponent({
         .left {
             display: flex;
             align-items: center;
+
+            .top {
+                display: flex;
+                align-items: center;
+
+                .title {
+                    font-weight: 600;
+                    margin-left: 10px;
+                    letter-spacing: 3px;
+                }
+            }
 
             .item {
                 padding: 0 10px;

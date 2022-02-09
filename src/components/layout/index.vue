@@ -1,13 +1,9 @@
 <template>
-    <el-container style="height: 100%">
-        <Aside></Aside>
+    <el-container style='height: 100%'>
+        <el-header><Header></Header></el-header>
         <el-container>
-            <el-header>
-                <Header></Header>
-            </el-header>
-            <el-main>
-                <Content></Content>
-            </el-main>
+            <Aside></Aside>
+            <el-main><Content></Content></el-main>
         </el-container>
     </el-container>
 </template>

@@ -1,9 +1,5 @@
 <template>
     <div class='aside'>
-        <div class='top'>
-            <el-avatar :size='40' :src='circleUrl'></el-avatar>
-            <span v-show='!isCollapse' class='title'>管理系统模板</span>
-        </div>
         <el-scrollbar height='100%' style='border-right: 1px solid #e4e4e4'>
             <el-menu
                 :collapse='isCollapse'
@@ -45,72 +41,72 @@
 </template>
 
 <script lang='ts'>
-    import { computed, defineComponent, onMounted, reactive, toRefs } from 'vue'
-    import { useStore } from 'vuex'
-    import { Key } from '@/store'
-    import router from '@/router'
-    import { getUserPermissionsApi } from '@/api/system/userApi'
-    import { ElMessage } from 'element-plus'
-    import Icon from '@/components/icon/Icon.vue'
+import { computed, defineComponent, onMounted, reactive, toRefs } from 'vue'
+import { useStore } from 'vuex'
+import { Key } from '@/store'
+import router from '@/router'
+import { getUserPermissionsApi } from '@/api/system/userApi'
+import { ElMessage } from 'element-plus'
+import Icon from '@/components/icon/Icon.vue'
 
-    export default defineComponent({
-        name: 'Aside',
-        components: {
-            Icon
-        },
-        setup() {
-            const store = useStore(Key)
-            // 是否收缩侧边栏
-            const isCollapse = computed(
-                () => store.state.system?.SYSTEM_COLLAPSE
-            )
-            // 图标
-            const state = reactive({
-                circleUrl:
+export default defineComponent({
+    name: 'Aside',
+    components: {
+        Icon
+    },
+    setup() {
+        const store = useStore(Key)
+        // 是否收缩侧边栏
+        const isCollapse = computed(
+            () => store.state.system?.SYSTEM_COLLAPSE
+        )
+        // 图标
+        const state = reactive({
+            circleUrl:
                     'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-                list: null
-            })
-            const user = computed(() =>
-                JSON.parse(store.state.user?.USER_INFO as string)
-            )
+            list: null
+        })
+        const user = computed(() =>
+            JSON.parse(store.state.user?.USER_INFO as string)
+        )
 
-            // 获取菜单列表
-            onMounted(() => {
-                getList()
-            })
+        // 获取菜单列表
+        onMounted(() => {
+            getList()
+        })
 
-            async function getList() {
-                const res = await getUserPermissionsApi({ id: user.value.id })
-                if (res.status === 200) {
-                    state.list = res.data.list as any
-                    store.commit(
-                        'system/SET_SYSTEM_PAGE_LIST',
-                        JSON.stringify(res.data.list)
-                    )
-                } else {
-                    ElMessage.error('获取菜单失败,请重新登录!')
-                    await router.push('/login')
-                }
-            }
-
-            // 当前页面
-            const activeRouter = computed(
-                () => store.state.system?.SYSTEM_ACTIVE_ROUTER
-            )
-
-            // 路由跳转
-            function navRouter(item: any) {
-                router.push(item.url)
-            }
-
-            return {
-                isCollapse,
-                ...toRefs(state),
-                activeRouter,
-                navRouter
+        async function getList() {
+            const res = await getUserPermissionsApi({ id: user.value.id })
+            if (res.status === 200) {
+                state.list = res.data.list as any
+                store.commit(
+                    'system/SET_SYSTEM_PAGE_LIST',
+                    JSON.stringify(res.data.list)
+                )
+            } else {
+                ElMessage.error('获取菜单失败,请重新登录!')
+                await router.push('/login')
             }
         }
-    })
+
+        // 当前页面
+        const activeRouter = computed(
+            () => store.state.system?.SYSTEM_ACTIVE_ROUTER
+        )
+
+        // 路由跳转
+        function navRouter(item: any) {
+            router.push(item.url)
+        }
+
+        return {
+            isCollapse,
+            ...toRefs(state),
+            activeRouter,
+            navRouter
+        }
+    }
+})
 </script>
 
 <style scoped lang='scss'>
@@ -124,21 +120,6 @@
         position: relative;
         z-index: 3;
         overflow: hidden;
-
-        .top {
-            height: 50px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #e4e4e4;
-
-            .title {
-                font-weight: 600;
-                margin-left: 10px;
-                letter-spacing: 3px;
-            }
-        }
     }
 
     .el-menu {

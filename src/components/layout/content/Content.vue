@@ -19,6 +19,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
     .main {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         background-color: #eee;
