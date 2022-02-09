@@ -1,8 +1,6 @@
 <template>
     <el-container style="height: 100%">
-        <el-aside :width="isCollapse ? '64px' : '200px'">
-            <Aside></Aside>
-        </el-aside>
+        <Aside></Aside>
         <el-container>
             <el-header>
                 <Header></Header>
