@@ -24,7 +24,6 @@ const breadcrumbList = ref()
 
 const initBreadcrumbList = () => {
     breadcrumbList.value = route.matched
-    console.log(route.matched)
 }
 watch(
     route,

@@ -1,13 +1,20 @@
 <template>
     <div class="main">
+        <Tags></Tags>
         <router-view></router-view>
     </div>
 </template>
 
 <script lang="ts">
-export default {
-    name: 'Content'
-}
+import { defineComponent } from 'vue'
+import Tags from '@/components/layout/aside/components/Tags.vue'
+
+export default defineComponent({
+    name: 'Content',
+    components: {
+        Tags
+    }
+})
 </script>
 
 <style scoped lang="scss">

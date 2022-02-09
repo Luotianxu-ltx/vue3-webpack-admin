@@ -37,10 +37,10 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
     NProgress.start()
     store.commit('system/SET_SYSTEM_ACTIVE_ROUTER', to.path)
-    await store.dispatch('system/addRouter', to.path)
+    // await store.dispatch('system/addRouter', to.path)
     next()
 })
 

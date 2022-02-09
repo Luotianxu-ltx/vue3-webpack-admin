@@ -31,6 +31,15 @@ export default {
         },
         SET_SYSTEM_ROUTER (state: SystemStateType, data: string): void {
             state.SYSTEM_ROUTER.push(data)
+        },
+        DEL_SYSTEM_ROUTER(state: SystemStateType, index: number):void {
+            state.SYSTEM_ROUTER.splice(index, 1)
+        },
+        ClEAR_SYSTEM_ROUTER(state: SystemStateType): void {
+            state.SYSTEM_ROUTER = []
+        },
+        CLOSEOTHER_SYSTEM_ROUTER(state:SystemStateType, data: []) {
+            state.SYSTEM_ROUTER = data
         }
     },
     actions: {

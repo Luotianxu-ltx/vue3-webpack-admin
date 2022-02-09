@@ -2,7 +2,7 @@
     <i
         class="icon"
         :class="iconStr"
-        :style="{ fontSize: fontSize, color: color, fontWeight: width }"
+        :style="{ fontSize: fontSize, color: color, fontWeight: width, padding: paddingNum }"
     ></i>
 </template>
 
@@ -29,15 +29,22 @@ export default defineComponent({
         width: {
             required: false,
             type: Number
+        },
+        padding: {
+            required: false,
+            type: Number,
+            default: 0
         }
     },
     setup(props) {
         const iconStr = computed(() => 'iconfont ' + props.icon)
         const fontSize = computed(() => props.font + 'px')
+        const paddingNum = computed(() => '0' + ' ' + props.padding + 'px')
 
         return {
             iconStr,
-            fontSize
+            fontSize,
+            paddingNum
         }
     }
 })

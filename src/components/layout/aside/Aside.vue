@@ -4,7 +4,7 @@
             <el-avatar :size="40" :src="circleUrl"></el-avatar>
             <span v-show="!isCollapse" class="title">管理系统模板</span>
         </div>
-        <el-scrollbar height="100%">
+        <el-scrollbar height="100%" style='border-right: 1px solid #e4e4e4;'>
             <el-menu
                 :collapse="isCollapse"
                 unique-opened
@@ -41,11 +41,11 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
-import Icon from '@/components/icon/Icon.vue'
 import { Key } from '@/store'
+import router from '@/router'
 import { getUserPermissionsApi } from '@/api/system/userApi'
 import { ElMessage } from 'element-plus'
-import router from '@/router'
+import Icon from '@/components/icon/Icon.vue'
 
 export default defineComponent({
     name: 'Aside',
