@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { Key } from '@/store'
 import Icon from '@/components/icon/Icon.vue'
@@ -66,23 +66,6 @@ export default defineComponent({
         }
 
         const tagsList: any = computed(() => store.state.system?.SYSTEM_ROUTER)
-
-        // 设置标签
-        const setTags = (to: any) => {
-            const isExist = tagsList.value.some((item: RouterItem) => {
-                return item.path as string === to.fullPath
-            })
-            if (!isExist) {
-                store.commit('system/SET_SYSTEM_ROUTER', {
-                    name: to.name,
-                    path: to.fullPath
-                })
-            }
-        }
-        setTags(route)
-        onBeforeRouteUpdate((to) => {
-            setTags(to)
-        })
 
         // 路由跳转
         const goto = (to: string) => {
