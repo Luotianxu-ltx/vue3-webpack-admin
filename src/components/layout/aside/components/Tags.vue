@@ -51,21 +51,26 @@ export default defineComponent({
         Icon
     },
     setup() {
+        interface RouterItem {
+            name: string,
+            path: string
+        }
+
         const route = useRoute()
         const router = useRouter()
         const store = useStore(Key)
 
         // 判断是否是当前页面
-        const isActive = (path) => {
+        const isActive = (path: string) => {
             return path === route.fullPath
         }
 
-        const tagsList = computed(() => store.state.system.SYSTEM_ROUTER)
+        const tagsList: any = computed(() => store.state.system?.SYSTEM_ROUTER)
 
         // 设置标签
         const setTags = (to: any) => {
-            const isExist = tagsList.value.some((item) => {
-                return item.path === to.fullPath
+            const isExist = tagsList.value.some((item: RouterItem) => {
+                return item.path as string === to.fullPath
             })
             if (!isExist) {
                 store.commit('system/SET_SYSTEM_ROUTER', {
@@ -80,19 +85,19 @@ export default defineComponent({
         })
 
         // 路由跳转
-        const goto = (to) => {
+        const goto = (to: string) => {
             router.push(to)
         }
 
-        const handleTags = (command) => {
+        const handleTags = (command: string) => {
             command === 'other' ? closeOther() : closeAll()
         }
 
         // 关闭单个标签
-        const closeTags = (index) => {
-            const delItem = tagsList.value[index]
+        const closeTags = (index: number) => {
+            const delItem: RouterItem = tagsList.value[index]
             store.commit('system/DEL_SYSTEM_ROUTER', index)
-            const item = tagsList.value[index] ?
+            const item: RouterItem = tagsList.value[index] ?
                 tagsList.value[index] :
                 tagsList.value[index - 1]
             if (item) {
@@ -108,9 +113,9 @@ export default defineComponent({
             router.push('/system/user')
         }
 
-        // 关闭其他标签
+        // 关闭其他标签(tagsList.value as Array<any>)
         const closeOther = () => {
-            const curItem = tagsList.value.filter((item) => {
+            const curItem = (tagsList.value as Array<RouterItem>).filter((item: RouterItem) => {
                 return item.path === route.fullPath
             })
             store.commit('system/CLOSEOTHER_SYSTEM_ROUTER', curItem)

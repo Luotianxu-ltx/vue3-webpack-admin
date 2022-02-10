@@ -10,7 +10,6 @@ declare module 'vue' {
     ChangeLanguage: typeof import('./src/components/changeLanguage/ChangeLanguage.vue')['default']
     Content: typeof import('./src/components/layout/content/Content.vue')['default']
     Dialog: typeof import('./src/components/dialog/Dialog.vue')['default']
-    ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -76,6 +75,8 @@ declare module 'vue' {
     MapTools: typeof import('./src/components/mapTools/MapTools.vue')['default']
     NavigationBar: typeof import('./src/components/layout/header/components/NavigationBar.vue')['default']
     Screenfull: typeof import('./src/components/layout/header/components/Screenfull.vue')['default']
+    Setting: typeof import('./src/components/layout/header/components/Setting.vue')['default']
+    Tags: typeof import('./src/components/layout/aside/components/Tags.vue')['default']
   }
 }
 

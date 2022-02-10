@@ -1,6 +1,6 @@
 <template>
     <div class='aside'>
-        <el-scrollbar height='100%' style='border-right: 1px solid #e4e4e4'>
+        <el-scrollbar height='100%' style='border-right: 1px solid #e4e4e4;'>
             <el-menu
                 :collapse='isCollapse'
                 unique-opened
@@ -28,7 +28,7 @@
                     >
                         <template #title>
                             <Icon
-                                style='margin-right: 5px'
+                                :padding='5'
                                 :icon='item1.icon'
                             ></Icon>
                             <span>{{ item1.name }}</span>
@@ -119,7 +119,6 @@ export default defineComponent({
         background-color: #fff;
         position: relative;
         z-index: 3;
-        overflow: hidden;
     }
 
     .el-menu {
