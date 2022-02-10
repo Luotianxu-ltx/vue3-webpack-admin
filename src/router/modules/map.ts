@@ -20,12 +20,12 @@ export default [
             },
             {
                 path: 'map02',
-                name: '地图卷帘',
+                name: '地图定位',
                 component: () => import('@/views/map/Map02.vue')
             },
             {
                 path: 'map03',
-                name: '定位',
+                name: '地图卷帘',
                 component: () => import('@/views/map/Map03.vue')
             },
             {
@@ -40,7 +40,7 @@ export default [
             },
             {
                 path: 'map06',
-                name: '聚合',
+                name: '聚合标注',
                 component: () => import('@/views/map/Map06.vue')
             },
             {
