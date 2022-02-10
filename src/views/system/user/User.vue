@@ -218,7 +218,7 @@ import { Search, Edit, Delete, CirclePlus } from '@element-plus/icons-vue'
 import { ElMessageBox, ElMessage } from 'element-plus'
 
 export default defineComponent({
-    name: 'MockTest',
+    name: 'User',
     components: { LayoutQuery },
     setup() {
         const options = shallowReadonly([

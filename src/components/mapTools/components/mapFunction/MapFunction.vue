@@ -48,7 +48,7 @@ import MapLocation from '@/components/mapTools/components/mapFunction/components
 import MapArea from '@/components/mapTools/components/mapFunction/components/MapArea.vue'
 
 export default defineComponent({
-    name: 'MapBtn',
+    name: 'MapFunction',
     props: {
         showMapControl: {
             default: false

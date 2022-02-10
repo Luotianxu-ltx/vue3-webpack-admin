@@ -8,7 +8,7 @@ import L from '@/lib/leaflet'
 import MapBase from '@/components/mapBase/MapBase.vue'
 
 export default defineComponent({
-    name: 'Map03',
+    name: 'Map05',
     components: {
         MapBase
     },

@@ -20,7 +20,7 @@ import dayjs from 'dayjs'
 import { getMapBasicIconRequire } from '@/utils/map/mapIcon'
 
 export default defineComponent({
-    name: 'Map08',
+    name: 'MapPlayBack',
     components: {
         PlayControl,
         PlayTable

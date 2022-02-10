@@ -91,7 +91,7 @@ import { defineComponent, ref } from 'vue'
 import L from '@/lib/leaflet'
 
 export default defineComponent({
-    name: 'MapSelect',
+    name: 'MapShowSetting',
     setup() {
         let baseMap = ''
         function initMapSetting(map) {

@@ -3,7 +3,9 @@
         <el-header><Header></Header></el-header>
         <el-container style='overflow: hidden'>
             <Aside></Aside>
-            <el-main><Content></Content></el-main>
+            <el-main>
+                <Content></Content>
+            </el-main>
         </el-container>
     </el-container>
 </template>
