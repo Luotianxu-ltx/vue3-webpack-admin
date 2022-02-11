@@ -178,6 +178,12 @@ const permissionsList = [
                 name: '轨迹回放',
                 icon: 'locus',
                 url: '/map/mapPlayBack'
+            },
+            {
+                id: 26,
+                name: '高德地图',
+                icon: 'locus',
+                url: '/map/aMap'
             }
         ]
     },

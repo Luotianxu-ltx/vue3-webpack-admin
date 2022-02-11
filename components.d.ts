@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AMap: typeof import('./src/components/aMap/AMap.vue')['default']
     Aside: typeof import('./src/components/layout/aside/Aside.vue')['default']
     Avatar: typeof import('./src/components/layout/header/components/Avatar.vue')['default']
     BreadCrumb: typeof import('./src/components/layout/header/components/BreadCrumb.vue')['default']
@@ -60,6 +61,7 @@ declare module 'vue' {
     MapArea: typeof import('./src/components/mapTools/components/mapFunction/components/MapArea.vue')['default']
     MapBase: typeof import('./src/components/mapBase/MapBase.vue')['default']
     MapChange: typeof import('./src/components/mapTools/components/MapChange.vue')['default']
+    MapContainer: typeof import('./src/components/aMap/MapContainer.vue')['default']
     MapDraw: typeof import('./src/components/mapDraw/MapDraw.vue')['default']
     MapFunction: typeof import('./src/components/mapTools/components/mapFunction/MapFunction.vue')['default']
     MapLocation: typeof import('./src/components/mapTools/components/mapFunction/components/mapLocation/MapLocation.vue')['default']

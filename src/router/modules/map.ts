@@ -47,6 +47,11 @@ export default [
                 path: 'mapPlayBack',
                 name: '轨迹回放',
                 component: () => import('@/views/map/mapPlayBack/MapPlayBack.vue')
+            },
+            {
+                path: 'aMap',
+                name: '高德地图',
+                component: () => import('@/views/map/AMapTest.vue')
             }
         ]
     }
