@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Tags from '@/components/layout/aside/components/Tags.vue'
+import Tags from '@/components/layout/content/components/Tags.vue'
 
 export default defineComponent({
     name: 'Content',
