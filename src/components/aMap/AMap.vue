@@ -1,6 +1,6 @@
 <template>
-    <div className='home_div'>
-        <div className='map-title'>
+    <div class='home_div'>
+        <div class='map-title'>
             <h3>JSAPI Vue3地图组件示例</h3>
         </div>
         <div id='container'></div>
@@ -9,6 +9,9 @@
 <script>
 import AMapLoader from '@amap/amap-jsapi-loader'
 import { shallowRef } from 'vue'
+window._AMapSecurityConfig = {
+    securityJsCode:'6b3c02797424ff02b092b3b28ef179e6'
+}
 
 export default {
     name: 'mapcomtaint',
@@ -17,7 +20,6 @@ export default {
         return {
             map
         }
-
     },
     methods: {
         ininMap() {
