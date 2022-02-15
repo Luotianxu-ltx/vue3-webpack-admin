@@ -1,10 +1,5 @@
 <template>
-    <div class='home_div'>
-        <div class='map-title'>
-            <h3>JSAPI Vue3地图组件示例</h3>
-        </div>
-        <div id='container'></div>
-    </div>
+    <div id='container'></div>
 </template>
 <script>
 import AMapLoader from '@amap/amap-jsapi-loader'
@@ -69,35 +64,10 @@ export default {
 }
 </script>
 <style scope>
-    .home_div {
-        height: 100%;
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-        position: relative;
-    }
-
     #container {
         height: 100%;
         width: 100%;
         padding: 0px;
         margin: 0px;
     }
-
-    .map-title {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 50px;
-        background-color: rgba(27, 25, 27, 0.884);
-
-    }
-
-    h3 {
-        position: absolute;
-        left: 10px;
-        z-index: 2;
-        color: white;
-    }
-
 </style>
