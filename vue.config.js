@@ -10,18 +10,18 @@ module.exports = {
         open: true, // 启动服务时自动打开浏览器访问
         proxy: {
             // 开发环境代理配置
+            [process.env.VUE_APP_BASE_URL + '/api']: {
+                target: 'https://mock.apipost.cn/app/mock/project/d5c047b0-0e83-4778-a6b1-edae4f63dfbf',
+                changeOrigin: true,
+                pathRewrite: {
+                    [process.env.VUE_APP_BASE_URL + '/api']: '/'
+                }
+            },
             [process.env.VUE_APP_BASE_URL + '/map']: {
                 target: 'https://restapi.amap.com',
                 changeOrigin: true,
                 pathRewrite: {
                     [process.env.VUE_APP_BASE_URL + '/map']: '/'
-                }
-            },
-            [process.env.VUE_APP_BASE_URL + '/api']: {
-                target: 'https://jsonplaceholder.typicode.com',
-                changeOrigin: true,
-                pathRewrite: {
-                    [process.env.VUE_APP_BASE_URL + '/api']: '/'
                 }
             },
             [process.env.VUE_APP_BASE_URL + '/jhApi']: {

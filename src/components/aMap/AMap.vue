@@ -9,6 +9,7 @@
 <script>
 import AMapLoader from '@amap/amap-jsapi-loader'
 import { shallowRef } from 'vue'
+window.forceWebGL = true
 window._AMapSecurityConfig = {
     securityJsCode:'6b3c02797424ff02b092b3b28ef179e6'
 }

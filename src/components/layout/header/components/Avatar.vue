@@ -50,9 +50,7 @@ export default defineComponent({
         }
         const router = useRouter()
         const store = useStore(Key)
-        const userInfo = computed(
-            () => JSON.parse(store.state.user?.USER_INFO as any) as any
-        )
+        const userInfo = computed(() => JSON.parse(store.state.user?.USER_INFO as any) as any)
 
         function logout() {
             router.push('/login')

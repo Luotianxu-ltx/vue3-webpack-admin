@@ -7,9 +7,9 @@ export const addUserApi = (data: any) => createAPI('/api/addUser', 'post', data)
 // 删除用户
 export const deleteUserApi = (data: any) => createAPI('/api/deleteUser', 'post', data)
 // 用户登录
-export const loginApi = (data: any) => createAPI('api/login', 'post', data)
+export const loginApi = (data: any) => createAPI('/api/login', 'post', data)
 // 用户注册
-export const registerApi = (data: any) => createAPI('api/register', 'post', data)
+export const registerApi = (data: any) => createAPI('/api/register', 'post', data)
 // 获取用户信息
 export const getUserInfoApi = (data: any) => createAPI('/api/getUserInfo', 'post', data)
 // 获取用户菜单

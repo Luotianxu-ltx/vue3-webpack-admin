@@ -102,10 +102,12 @@ export default defineComponent({
                         const list = await getUserPermissionsApi({
                             id: res.data.id
                         })
+                        console.log(userInfo)
+                        console.log(userInfo.data)
                         if (
                             userInfo.status === 200 &&list.status === 200) {
                             const data = flattenedTree(list.data.list)
-                            store.commit('user/SET_USER_INFO',JSON.stringify(userInfo.data.userInfo))
+                            store.commit('user/SET_USER_INFO',JSON.stringify(userInfo.data))
                             store.commit('user/SET_USER_PERMISSIONS', data)
                         } else {
                             return ElMessage.warning('获取用户信息失败，请稍后重试!')
