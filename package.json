@@ -16,7 +16,7 @@
         "axios": "^0.24.0",
         "core-js": "^3.6.5",
         "dayjs": "^1.10.7",
-        "element-plus": "^2.0.2",
+        "element-plus": "^2.1.4",
         "leaflet": "^1.7.1",
         "nprogress": "^1.0.0-0",
         "screenfull": "^5.1.0",
